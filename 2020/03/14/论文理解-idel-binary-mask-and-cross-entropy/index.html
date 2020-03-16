@@ -12,7 +12,7 @@
     
     
     
-    <title>search | 平平无奇勒布朗</title>
+    <title>论文理解-idel-binary-mask-and-cross-entropy | 平平无奇勒布朗</title>
     <link href="https://thebigpeng.github.io" rel="prefetch" />
 
     
@@ -196,215 +196,74 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://thebigpeng.github.io">平平无奇勒布朗</a>
+        >
+        <span>论文理解-idel-binary-mask-and-cross-entropy</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/03/14/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-idel-binary-mask-and-cross-entropy/">论文理解-idel-binary-mask-and-cross-entropy</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/ML/">ML</a>, 
+                
+                <a href="/tags/AUDIO-SOURCE-SEPARATION/">AUDIO SOURCE SEPARATION</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-03-14
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/03/14/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-idel-binary-mask-and-cross-entropy/">论文理解-idel-binary-mask-and-cross-entropy</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-03-14
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/ML/">ML</a>, 
+                
+                <a href="/tags/AUDIO-SOURCE-SEPARATION/">AUDIO SOURCE SEPARATION</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>论文获取(预印本):<a href="https://arxiv.org/abs/1812.01278" target="_blank" rel="noopener">Singing Voice Separation Using a Deep Convolutional Neural Network Trained by Ideal Binary Mask and Cross Entropy</a></p>
+<hr>
+<h2 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h2><p>  &emsp;1.本文依pixel-wise 图像分类技术启发提出了一个新的神经网络结构来实现音乐背景伴奏分离人声的任务，使用了<strong>交叉熵损失函数</strong>和<strong>预训练神经网络</strong>结合来作为<strong>自编码器</strong>(Autoencoder);<br>  &emsp;2.像素级分类技术直接用来评估频谱图中每个T-F块所对应的声源信号的标签，所提的网络是通过理想二值掩膜(IBM)作为训练输出的标签；<br>  &emsp;3.该论文把分离任务视为一个像素级的图片分类任务，并消除了一个被广泛使用但不好理解的步骤：<strong>维纳滤波后处理</strong>；</p>
+<h3 id="想法："><a href="#想法：" class="headerlink" title="想法："></a>想法：</h3><p>  &emsp;1.以前只听过维纳滤波器来处理信号噪声，没想到ML这里也提到了它，还不知道引进它的作用是啥，以后得找文章读读；<br>  &emsp;2.其实不是很理解<strong>自编码器</strong>的概念，为什么该部分操作要这么取名字，找到了一篇相关介绍的博文，内容也很有限，不过可以作为参考<a href="https://blog.csdn.net/qq_39521554/article/details/80697882" target="_blank" rel="noopener">自编码器</a>，另外顺便贴一下关于<strong>掩蔽效应</strong>的博文。<a href="https://www.cnblogs.com/ytxwzqin/p/9859620.html" target="_blank" rel="noopener">掩蔽</a></p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>  &emsp;该论文提出的额结构如下图(选自原论文)<br>  <img src="1.png" alt="alt"><br>  <img src="2.png" alt="alt"></p>
+<h4 id="训练过程："><a href="#训练过程：" class="headerlink" title="训练过程："></a>训练过程：</h4><p>  &emsp;1.<strong>预处理阶段</strong>:此阶段用来生成神经网路的输入数据，首先通过一个<strong>短时傅里叶变化(STFT)</strong>分别获得输入混合音频的幅度谱和相位谱(STFT的具体参数设置见论文)，根据作者之前关于Sinusoidal partials tracking(PT)的研究，歌唱的人声平均长度在9个连续帧并且4倍0填充时进行分离任务最理想，故假设这样的数据能够被CNN网络充分训练。<br>  &emsp;2.<strong>训练阶段</strong>：此阶段以上一阶段的输出作为训练输入，作者是根据他人人声识别的网络改的，<a href="https://wp.nyu.edu/ismir2016/wp-content/uploads/sites/2294/2016/07/315_Paper.pdf" target="_blank" rel="noopener">原网络论文链接</a>。在上一步作者生成了混合信号完整的语谱图，并逐一分9帧作为神经网络的输入进行训练。这里使用IBM作为网络的训练标签，而网络的训练输出是该输入数据属于人声还是属于背景声的概率值，因此可以在这里使用<strong>交叉熵</strong>作为训练loss，IBM是一个二值掩码，取值为0和1。<br>  &emsp;3.<strong>输出阶段:</strong>此阶段利用训练的输出9帧T-Fbin图像中间的一帧数据逐一拼接成soft mask语谱图，然后对这个图进行了逆STFT运算变换为人声</p>
+<h2 id="个人想法"><a href="#个人想法" class="headerlink" title="个人想法"></a>个人想法</h2><p>  目前打算将这片论文的实验仿真下来，然后参照他的模式设计自己的分离网络。 </p>
 
-<!-- search自定义页面 -->
-<script type="text/javascript">
+    </div>
+</article>
 
-	var htmlEntityMap = {
-		'&': '&amp;',
-		'<': '&lt;',
-		'>': '&gt;',
-		'"': '&quot;',
-		'\'': '&#39;',
-		'/': '&#x2F;'
-	};
-
-	// 参照hexo过滤html的方法(事实上感觉静态也没什么可以过滤的)
-	function escapeKey(str) {
-		if (typeof str !== 'string') throw new TypeError('str must be a string!');
-
-		// http://stackoverflow.com/a/12034334
-		return str.replace(/[&<>"'\/]/g, function(a) {
-			return htmlEntityMap[a];
-		});
-	}
-
-	var query = decodeURIComponent(window.location.search).substring(1).split('&')
-    // 获取搜索关键词
-    var s = escapeKey(query[0].split('=')[1])
-    // 获取当前页数
-    var p = query.length > 1 ? query[1].split('=')[1] : 1
-    // 获取每页的页码数
-    var pageSize = '10'
-    var useLeancloud = ''
-    var useComment = ('false' === 'true')
-    $.getJSON('/content.json', function (json) {
-      $('#search-breadcrumb').append(`搜索'${s}'的结果`)
-      var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
-      if (result.length === 0 || result.length <= (p - 1) * pageSize) {
-      	// TODO 显示404页面
-      } else {
-        displaySearchResult(result.slice((p - 1) * pageSize, p * pageSize))
-        displayPagination(result)
-      }
-    })
-
-    function getArticles(val, type, json) {
-      return json[type].filter((e) => {
-        return e.title.indexOf(val) !== -1 || e.text.indexOf(val) !== -1
-      })
-    }
-
-    function displaySearchResult(result) {
-      var resultList = $('#article-list')
-      result.forEach(function (article) {
-      	var [month, day] = article.date.split('-')
-        ''
-        ''
-        var defaultPreview = '/imgs/preview/preview2.jpg'
-        var preview = article.preview ? article.preview : defaultPreview
-        var path = '/' + article.path
-        resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-                                <div class="data-article hidden-xs">
-                                    <span class="month">${month}月</span>
-                                    <span class="day">${day}</span>
-                                </div>
-                                <section class="hidden-xs">
-                                    <div class="title-article">
-                                        <h1>
-                                            <a href="${path}">
-                                                <span>${article.title}</span>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                    <div class="tag-article">
-                                    ${ article.tags.length > 0 ? `<span class="label label-gal"><i class="fa fa-tags"></i>${
-                                    	article.tags.map(function (tag) {
-						                 return `<a href=${ tag.permalink }>${ tag.name }</a>`
-                                    	}).join(', ') }</span>` : '' }
-                                    ${ useLeancloud ? '<span class="label label-gal"><i class="fa fa-eye"></i></span>' : ''}
-                                    </div>
-                                    <div class="alert alert-gal article-body content-article">
-                                         <div class="item">
-                                            <a href="${path}">
-                                                <div class="img">
-                                                    <img src="${preview}" alt="${article.title}">
-                                                </div>
-                                                <div class="info">
-                                                    <p>${article.excerpt}</p>
-                                                </div>
-                                            </a>
-                                         </div>
-					                </div>
-					            </section>
-                           </div>`)
-      })
-      if (useLeancloud) {
-        var Counter = AV.Object.extend('Counter')
-        showPostsTime(Counter)
-      }
-      if (useComment) {
-      	showCommentCount()
-      }
-    }
-
-    function displayPagination(result) {
-      var pgContainer = $('#gal-pagination')
-      var pg = $(pgContainer.find('.pagination-gal')[0])
-      if(result.length > 0) {
-        pgContainer.css('display', 'block')
-      }
-      var num = Math.ceil(result.length / pageSize)
-      var root = '/search'
-      var link = root + `/index.html?s=${s}`
-      if(p > 1) {
-      	pg.append(`<li class="prev"><a href="${link}&page=${p-1}">«</a></li>`)
-      }
-      if(p > 7) {
-      	pg.append(`<li><a href="${link}">1</a></li>
-                   <li><span>...</span></li>`)
-        for(var i = p - 3; i < p; i++) {
-          pg.append(`<li><a href="${link}&page=${i}">${i}</a></li>`)
-        }
-      } else {
-      	for(var j = 1; j < p; j++) {
-          pg.append(`<li><a href="${link}${j === 1 ? '' : `&page=${j}`}">${j}</a></li>`)
-        }
-      }
-      pg.append(`<li class="current"><span>${p}</span></li>`)
-      if(p + 7 < num) {
-      	for(var i = p + 1; i <= p + 3; i++) {
-          pg.append(`<li><a href="${link}&page=${i}">${i}</a></li>`)
-        }
-        pg.append(`<li><span>...</span></li>`)
-      } else {
-      	for(var j = p + 1; j <= num; j++) {
-          pg.append(`<li><a href="${link}&page=${j}">${j}</a></li>`)
-        }
-      }
-      if(p < num) {
-      	pg.append(`<li class="next"><a href="${link}&page=${p+1}">»</a></li>`)
-      }
-    }
-
-    function showPostsTime(Counter) {
-      var entries = []
-      var excerpts = $('.article-excerpt')
-      excerpts.each(function () {
-        entries.push($(this).find('.title-article').first().find('a').attr('href').trim())
-      })
-      var query = new AV.Query(Counter)
-      query.containedIn('url', entries)
-      query.find().then(function (result) {
-        excerpts.each(function () {
-          var href = $(this).find('.title-article').first().find('a').attr('href').trim()
-          var r = result.filter(function (e) {
-            return e.get('url') === href
-          })
-          if(r.length > 0) {
-            $(this).find('i.fa-eye').each(function () {
-              $(this).after(' ' + r[0].get('time') + ' ℃')
-            })
-          } else {
-            $(this).find('i.fa-eye').each(function () {
-              $(this).after(' 0 ℃')
-            })
-          }
-        })
-      }).then(function (error) {
-        console.log('Error:' + error.code + ' ' + error.message)
-      })
-    }
-
-    function showCommentCount() {
-      const excerpts = $('.article-excerpt')
-      const owner = window.commentConfig.owner
-      const repo = window.commentConfig.repo
-      $.ajax({
-        url: "https://api.github.com/repos/" + owner + '/' + repo + '/issues',
-        data: {
-          creator: owner
-        }
-      }).done(function(issues) {
-        excerpts.each(function () {
-          const that = $(this)
-          that.find('h1 > a > span').each(function () {
-            const title = $(this).text()
-            const tags = that.find('div.tag-article')
-            const issue = issues.filter(function (issue) {
-              return issue.title === title
-            })
-            const comments = issue.length > 0 ? issue[0].comments : 0
-            tags.each(function () {
-              $(this).append('<span class="label label-gal"><i class="fa fa-comments"></i><a> ' + comments + '</a></span>')
-            })
-          })
-        })
-      }).fail(function (error) {
-        console.log(error)
-      });
-    }
-
-</script>
-<div class="breadcrumb breadcrumb-gal" id="search-breadcrumb">
-    <i class="fa fa-home"></i>
-</div>
-<div id="article-list"></div>
-<div id="gal-pagination" class="clearfix" style="display: none;">
-    <ul class="pagination pagination-gal pull-right"></ul>
-</div>
-<!-- 404页面 -->
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -572,17 +431,17 @@
 
                 
                 <li>
-                    <a href="/search/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2020/03/14/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-idel-binary-mask-and-cross-entropy/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/search/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2020/03/14/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-idel-binary-mask-and-cross-entropy/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/search/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2020/03/14/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-idel-binary-mask-and-cross-entropy/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -590,15 +449,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/ML/" style="font-size: 12.974239168977888px;" class="tag-cloud-link">ML</a>
+    <a href="/tags/ML/" style="font-size: 8.444667829205951px;" class="tag-cloud-link">ML</a>
     
-    <a href="/tags/AUDIO-SOURCE-SEPARATION/" style="font-size: 11.297781685895144px;" class="tag-cloud-link">AUDIO SOURCE SEPARATION</a>
+    <a href="/tags/AUDIO-SOURCE-SEPARATION/" style="font-size: 13.599618690709697px;" class="tag-cloud-link">AUDIO SOURCE SEPARATION</a>
     
-    <a href="/tags/Hexo/" style="font-size: 15.392792742375185px;" class="tag-cloud-link">Hexo</a>
+    <a href="/tags/Hexo/" style="font-size: 10.691095751052618px;" class="tag-cloud-link">Hexo</a>
     
-    <a href="/tags/Blog/" style="font-size: 9.527608846191786px;" class="tag-cloud-link">Blog</a>
+    <a href="/tags/Blog/" style="font-size: 14.906447693498116px;" class="tag-cloud-link">Blog</a>
     
-    <a href="/tags/Website/" style="font-size: 12.358829806728675px;" class="tag-cloud-link">Website</a>
+    <a href="/tags/Website/" style="font-size: 10.277822212677426px;" class="tag-cloud-link">Website</a>
     
 </div>
                 
