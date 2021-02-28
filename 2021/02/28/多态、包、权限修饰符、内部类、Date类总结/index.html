@@ -17,18 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>归档: 2020 | Hexo</title>
-  <meta name="description" content="行路难！多歧路，今安在？乘风破浪会有时，直挂云帆济沧海。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="平平无奇勒布朗">
-<meta property="og:url" content="http://jamesforlife.top/archives/2020/index.html">
+  <title>多态、包、权限修饰符、内部类、Date类总结 | Hexo</title>
+  <meta name="description" content="Date类1.概述jar包：java.util.Date  public Date()：从运行程序的此时此刻到时间原点经历的毫秒值,转换成Date对象，分配Date对象并初始化此对象，以表示分配它的时间（精确到毫秒）。 public Date(long date)：将指定参数的毫秒值date,转换成Date对象，分配Date对象并初始化此对象，以表示自从标准基准时间（称为“历元（epoch）”，即">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多态、包、权限修饰符、内部类、Date类总结">
+<meta property="og:url" content="http://jamesforlife.top/2021/02/28/%E5%A4%9A%E6%80%81%E3%80%81%E5%8C%85%E3%80%81%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB%E3%80%81Date%E7%B1%BB%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="平平无奇勒布朗">
-<meta property="og:description" content="行路难！多歧路，今安在？乘风破浪会有时，直挂云帆济沧海。">
+<meta property="og:description" content="Date类1.概述jar包：java.util.Date  public Date()：从运行程序的此时此刻到时间原点经历的毫秒值,转换成Date对象，分配Date对象并初始化此对象，以表示分配它的时间（精确到毫秒）。 public Date(long date)：将指定参数的毫秒值date,转换成Date对象，分配Date对象并初始化此对象，以表示自从标准基准时间（称为“历元（epoch）”，即">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-28T08:22:44.000Z">
+<meta property="article:modified_time" content="2021-02-28T08:34:11.280Z">
 <meta property="article:author" content="Peng Chenhui">
+<meta property="article:tag" content="基础知识点">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://jamesforlife.top/archives/2020/index.html">
+  <link rel="canonical" href="http://jamesforlife.top/2021/02/28/%E5%A4%9A%E6%80%81%E3%80%81%E5%8C%85%E3%80%81%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB%E3%80%81Date%E7%B1%BB%E6%80%BB%E7%BB%93/index.html">
   
     <link rel="alternate" href="/atom.xml" title="平平无奇勒布朗" type="application/atom+xml">
   
@@ -336,164 +339,201 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档: 2020</h1>
-	      <p class="text-muted">共 10 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-多态、包、权限修饰符、内部类、Date类总结" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      多态、包、权限修饰符、内部类、Date类总结
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2020" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2020
-            </a>
-            <!-- <a href="/archives/2020" class="archive-year">2020</a> -->
-          </h3>
-        </div>
-        <div id="collapse2020" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2020">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2020/10/13/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-13T01:36:44.000Z" itemprop="datePublished">2020-10-13</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> MySQL知识点总结
-</a>
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/02/28/%E5%A4%9A%E6%80%81%E3%80%81%E5%8C%85%E3%80%81%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB%E3%80%81Date%E7%B1%BB%E6%80%BB%E7%BB%93/" class="article-date">
+	  <time datetime="2021-02-28T08:22:44.000Z" itemprop="datePublished">2021-02-28</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">基础知识点</a>
+  </span>
 
 
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/02/28/%E5%A4%9A%E6%80%81%E3%80%81%E5%8C%85%E3%80%81%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB%E3%80%81Date%E7%B1%BB%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 426(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><p>jar包：<code>java.util.Date</code></p>
+<ul>
+<li><code>public Date()</code>：从运行程序的<font color='red'>此时此刻到时间原点</font>经历的毫秒值,转换成<font color='red'>Date对象</font>，分配Date对象并初始化此对象，以表示分配它的时间（精确到毫秒）。</li>
+<li><code>public Date(long date)</code>：将指定参数的毫秒值date,转换成Date对象，分配Date对象并初始化此对象，以表示自从标准基准时间（称为“历元（epoch）”，即1970年1月1日00:00:00 GMT）以来的指定毫秒数。</li>
+</ul>
+<p>使用无参构造，可以自动设置当前系统时间的毫秒时刻；指定long类型的构造参数，可以自定义毫秒时刻。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01Date</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建日期对象，把当前的时间</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> Date()); <span class="comment">// Tue Jan 16 14:37:35 CST 2020</span></span><br><span class="line">        <span class="comment">// 创建日期对象，把当前的毫秒值转成日期对象</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> Date(<span class="number">0L</span>)); <span class="comment">// Thu Jan 01 08:00:00 CST 1970</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Date常用方法"><a href="#2-Date常用方法" class="headerlink" title="2.Date常用方法"></a>2.Date常用方法</h2><ul>
+<li><code>public long getTime()</code> 把日期对象转换成对应的时间毫秒值。</li>
+<li><code>public void setTime(long time)</code> 把方法参数给定的毫秒值设置给日期对象</li>
+</ul>
+<p>示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateDemo02</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建日期对象</span></span><br><span class="line">        Date d = <span class="keyword">new</span> Date();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//public long getTime():获取的是日期对象从1970年1月1日 00:00:00到现在的毫秒值</span></span><br><span class="line">        <span class="comment">//System.out.println(d.getTime());</span></span><br><span class="line">        <span class="comment">//System.out.println(d.getTime() * 1.0 / 1000 / 60 / 60 / 24 / 365 + "年");</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//public void setTime(long time):设置时间，给的是毫秒值</span></span><br><span class="line">        <span class="comment">//long time = 1000*60*60;</span></span><br><span class="line">        <span class="keyword">long</span> time = System.currentTimeMillis();</span><br><span class="line">        d.setTime(time);</span><br><span class="line"></span><br><span class="line">        System.out.println(d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>小结：Date表示特定的时间瞬间，我们可以使用Date对象对时间进行操作。</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://jamesforlife.top/2021/02/28/%E5%A4%9A%E6%80%81%E3%80%81%E5%8C%85%E3%80%81%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB%E3%80%81Date%E7%B1%BB%E6%80%BB%E7%BB%93/" title="多态、包、权限修饰符、内部类、Date类总结" target="_blank" rel="external">http://jamesforlife.top/2021/02/28/%E5%A4%9A%E6%80%81%E3%80%81%E5%8C%85%E3%80%81%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB%E3%80%81Date%E7%B1%BB%E6%80%BB%E7%BB%93/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/thebigpeng" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/thebigpeng" target="_blank"><span class="text-dark">平平无奇勒布朗</span><small class="ml-1x">leaner</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
-    
-    
-<a href="/2020/08/14/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-6-%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-08-14T10:36:48.000Z" itemprop="datePublished">2020-08-14</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 剑指offer刷题-6-链表中倒数第k个节点
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/08/08/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-5-%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-08-08T04:09:22.000Z" itemprop="datePublished">2020-08-08</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 剑指offer刷题-5-数组中只出现一次的两个数
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/08/07/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-4%EF%BC%89%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%87%8C%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-08-07T12:18:01.000Z" itemprop="datePublished">2020-08-07</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 剑指offer刷题(4)滑动窗口里的最大值
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/07/27/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-3-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-27T13:11:34.000Z" itemprop="datePublished">2020-07-27</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 剑指offer刷题(3)在字符串 s 中找出第一个只出现一次的字符
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/07/26/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-2-%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%90%88%E4%B8%BA%E7%9B%AE%E6%A0%87%E6%95%B0%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%80%BC%E7%9A%84%E4%B8%8B%E6%A0%87/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-26T13:11:34.000Z" itemprop="datePublished">2020-07-26</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 剑指offer刷题(2)两数之和
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/07/25/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-1-%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%B8%80%E5%8D%8A%E7%9A%84%E5%80%BC/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-25T06:22:34.000Z" itemprop="datePublished">2020-07-25</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 剑指offer刷题(1)找出数组中出现次数超过数组长度一半的值
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/03/31/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-%E5%BA%94%E7%94%A8%E4%BA%8E%E9%9F%B3%E4%B9%90%E5%88%86%E7%A6%BB%E7%9A%84%E4%B8%80%E7%A7%8D%E7%A9%BA%E9%97%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-03-30T16:11:09.000Z" itemprop="datePublished">2020-03-31</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 论文理解-应用于音乐分离的一种空间注意力机制
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/03/18/%E7%BB%BC%E8%BF%B0%E8%AE%BA%E6%96%87-%E9%9F%B3%E6%BA%90%E5%88%86%E7%A6%BB/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-03-18T15:43:13.000Z" itemprop="datePublished">2020-03-18</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> [综述论文]音源分离
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/03/14/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-idel-binary-mask-and-cross-entropy/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-03-14T06:24:58.000Z" itemprop="datePublished">2020-03-14</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 论文理解-idel-binary-mask-and-cross-entropy
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
+  <section id="comments">
   	
+      <div id="vcomments"></div>
     
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <ul class="pager pull-left">
-            
-            <li class="prev disabled">
-                <a href="javascript:;">
-                    <i class="icon icon-angle-left"></i>
-                    上一页
-                </a>
-            </li>
-            
-            
-            <li class="next">
-                <a href="/archives/2020/page/2/">
-                    下一页
-                    <i class="icon icon-angle-right"></i>
-                </a>
-            </li>
-            
-        </ul>
-        <div class="total-article bar-right">Page 1 of 2</div>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2021/02/28/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9/" title="多线程知识点"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-    
- 	
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -548,6 +588,39 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'kIhANPl3kQcs73Gw02jIL1uB-gzGzoHsz',
+    appKey: 'Svz87iHFwHxD6nIjCtxsxmY5',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
