@@ -17,22 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>剑指offer刷题(1)找出数组中出现次数超过数组长度一半的值 | Hexo</title>
-  <meta name="description" content="题目地址：数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。 你可以假设数组是非空的，并且给定的数组总是存在多数元素。 示例： 12输入: [1, 2, 3, 2, 2, 2, 5, 4, 2]输出: 2  python:思路：要找出这个数字需要统计数组中每个元素出现的次数，在Python中这个数组是个列表，因此可以使用Lis">
+  <title>Object类总结 | Hexo</title>
+  <meta name="description" content="Object类总结1.什么是Object类？Object是Java中的祖宗类，java中的所有类要么默认继承Object类，要么间接继承它，因此Object类中的方法所有方法都能使用，比较常见的方法有public String toString()、public boolean equals(Object obj)等。 2.toString()方法 public String toString()">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer刷题(1)找出数组中出现次数超过数组长度一半的值">
-<meta property="og:url" content="http://jamesforlife.top/2020/07/25/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-1-%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%B8%80%E5%8D%8A%E7%9A%84%E5%80%BC/index.html">
+<meta property="og:title" content="Object类总结">
+<meta property="og:url" content="http://jamesforlife.top/2021/02/28/Object%E7%B1%BB%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="平平无奇勒布朗">
-<meta property="og:description" content="题目地址：数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。 你可以假设数组是非空的，并且给定的数组总是存在多数元素。 示例： 12输入: [1, 2, 3, 2, 2, 2, 5, 4, 2]输出: 2  python:思路：要找出这个数字需要统计数组中每个元素出现的次数，在Python中这个数组是个列表，因此可以使用Lis">
+<meta property="og:description" content="Object类总结1.什么是Object类？Object是Java中的祖宗类，java中的所有类要么默认继承Object类，要么间接继承它，因此Object类中的方法所有方法都能使用，比较常见的方法有public String toString()、public boolean equals(Object obj)等。 2.toString()方法 public String toString()">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-25T06:22:34.000Z">
-<meta property="article:modified_time" content="2020-07-26T04:06:31.000Z">
+<meta property="article:published_time" content="2021-02-28T06:58:26.000Z">
+<meta property="article:modified_time" content="2021-02-28T07:42:09.129Z">
 <meta property="article:author" content="Peng Chenhui">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="Python">
+<meta property="article:tag" content="基础知识点">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://jamesforlife.top/2020/07/25/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-1-%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%B8%80%E5%8D%8A%E7%9A%84%E5%80%BC/index.html">
+  <link rel="canonical" href="http://jamesforlife.top/2021/02/28/Object%E7%B1%BB%E6%80%BB%E7%BB%93/index.html">
   
     <link rel="alternate" href="/atom.xml" title="平平无奇勒布朗" type="application/atom+xml">
   
@@ -341,14 +340,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-剑指offer刷题-1-找出数组中出现次数超过数组长度一半的值" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Object类总结" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      剑指offer刷题(1)找出数组中出现次数超过数组长度一半的值
+      Object类总结
     </h1>
   
 
@@ -356,20 +355,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/07/25/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-1-%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%B8%80%E5%8D%8A%E7%9A%84%E5%80%BC/" class="article-date">
-	  <time datetime="2020-07-25T06:22:34.000Z" itemprop="datePublished">2020-07-25</time>
+	<a href="/2021/02/28/Object%E7%B1%BB%E6%80%BB%E7%BB%93/" class="article-date">
+	  <time datetime="2021-02-28T06:58:26.000Z" itemprop="datePublished">2021-02-28</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+    <a class="article-category-link" href="/categories/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link" href="/tags/Python/" rel="tag">Python</a>
+	<a class="article-tag-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">基础知识点</a>
   </span>
 
 
@@ -382,40 +381,56 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/07/25/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-1-%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%B8%80%E5%8D%8A%E7%9A%84%E5%80%BC/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/02/28/Object%E7%B1%BB%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 681(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 766(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>题目地址：</strong><a href="https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/" target="_blank" rel="noopener">数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字</a><br><strong>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。</strong> <strong>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</strong></p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1, 2, 3, 2, 2, 2, 5, 4, 2]</span><br><span class="line">输出: 2</span><br></pre></td></tr></table></figure>
+        <h1 id="Object类总结"><a href="#Object类总结" class="headerlink" title="Object类总结"></a>Object类总结</h1><h2 id="1-什么是Object类？"><a href="#1-什么是Object类？" class="headerlink" title="1.什么是Object类？"></a>1.什么是Object类？</h2><p>Object是Java中的祖宗类，java中的所有类要么默认继承Object类，要么间接继承它，因此Object类中的方法所有方法都能使用，比较常见的方法有<code>public String toString()</code>、<code>public boolean equals(Object obj)</code>等。</p>
+<h2 id="2-toString-方法"><a href="#2-toString-方法" class="headerlink" title="2.toString()方法"></a>2.toString()方法</h2><ul>
+<li><code>public String toString()</code>：返回该对象的字符串表示</li>
+</ul>
+<ol>
+<li>该方法默认是<font color='red'>返回</font>当前<font color='red'>对象在</font><font color='red'>堆内存</font>中的<font color='red'>地址信息</font>，</li>
+<li>默认的地址信息格式：<code>类的全限名(包名)@内存地址</code></li>
+</ol>
+<p><font color='cornflowerblue'>问题</font>：开发中直接输出对象，默认输出对象的地址是往往是毫无无意的，我们往往需要输出对象的内容数据信息。在实际开发中我们往往需要<font color='red'>把父类的toString()方法重写</font>来满足开发需求。</p>
+<p>例如自定义的Person类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Person&#123;"</span> + <span class="string">"name='"</span> + name + <span class="string">'\''</span> + <span class="string">", age="</span> + age + <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 省略构造器与Getter Setter</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h6 id="python"><a href="#python" class="headerlink" title="python:"></a>python:</h6><p>思路：要找出这个数字需要统计数组中每个元素出现的次数，在Python中这个数组是个列表，因此可以使用List自带的方法count来统计列表中每个元素出现的次数。使用set方法得到数组列表中出现的不重复元素，依次比对所有元素的出现次数是否大于数组长度的一半。由于题中给定数组中只有一个元素满足题目要求，故使用for循环对比发现某个元素出现的次数大于数组长度的一半时，返回即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">majorityElement</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        result = &#123;&#125;</span><br><span class="line">        max_num = <span class="number">-1</span></span><br><span class="line">        max_coount = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> set(nums):</span><br><span class="line">            <span class="keyword">if</span> nums.count(i) &gt; int(len(nums)/<span class="number">2</span>):</span><br><span class="line">                max_coount = nums.count(i)</span><br><span class="line">                max_num = i</span><br><span class="line">        <span class="keyword">return</span> max_num</span><br></pre></td></tr></table></figure>
 
-<p><strong>Java</strong></p>
-<p>可涉及的知识点如下：</p>
-<blockquote>
-<p>ArrayList<br>LinkedList<br>Stack<br>HashMap || HashSet<br>Queue</p>
-</blockquote>
-<p>考虑使用HashMap，其中<a href="https://www.runoob.com/java/java-map-interface.html" target="_blank" rel="noopener">Java中map集合方法</a>需要熟记。</p>
-<p><strong>方法一：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(nums[i]))&#123;</span><br><span class="line">                map.put(nums[i],map.get(nums[i])+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                map.put(nums[i],<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> leng = nums.length &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> key : map.keySet())&#123;</span><br><span class="line">            <span class="keyword">if</span> (map.get(key)&gt;leng)&#123;</span><br><span class="line">                <span class="keyword">return</span> key;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>思路：</strong>可以想到用<code>hashmap</code>来存储数组中出现的元素以及其出现的次数，<code>map</code>中<code>key</code>是不重复的，因此需要用到map集合的方法<code>containsKey</code>来判定原<code>map</code>中是否存在这个<code>key</code>，存在则在原来的键值<code>value</code>上+1（调用<code>put</code>方法），不存在就put键值为1，最后找出键值大小超过数组长度一半的key即可。</p>
-<p><strong>方法二：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">             <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;nums.length;j++)&#123;</span><br><span class="line">                 <span class="keyword">if</span> (nums[i] == nums[j])&#123;</span><br><span class="line">                     count++;</span><br><span class="line">                 &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (count&gt;nums.length&gt;&gt;<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-equals-方法"><a href="#3-equals-方法" class="headerlink" title="3.equals()方法"></a>3.equals()方法</h2><ol>
+<li>该方法<font color='red'>默认是比较两个对象的地址</font>是否相同，相同则返回true，反之返回false。</li>
+<li>直接比较两个对象的地址是否相等完全可以使用 <code>==</code> 来替代，因此可以<font color='red'>重写该方法来定制自己的比较规则</font>。</li>
+</ol>
+<p>如果希望进行对象的内容比较，即所有或指定的部分成员变量相同就判定两个对象相同，则可以覆盖重写equals方法。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 如果对象地址一样，则认为相同</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">// 如果参数为空，或者类型信息不一样，则认为不同</span></span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass())</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">// 转换为当前类型</span></span><br><span class="line">        Person person = (Person) o;</span><br><span class="line">        <span class="comment">// 要求基本类型相等，并且将引用类型交给java.util.Objects类的equals静态方法取用结果</span></span><br><span class="line">        <span class="keyword">return</span> age == person.age &amp;&amp; Objects.equals(name, person.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>思路：</strong>此方法执行时间花销较大，内存比前一方法略小，直接通过两个<code>for循环</code>依次统计所有元素出现次数，用<code>count</code>变量存储，每统计完一个元素就判定该元素的出现次数是否大于一半数组长度，大于则直接返回该元素，不再进行循环。</p>
+<h1 id="Objects类"><a href="#Objects类" class="headerlink" title="Objects类"></a>Objects类</h1><p>Objects类在JDK1.7及以上包含，依旧是<font color='red'>继承了Object类</font>。它提供了一些方法来操作对象，它由一些静态的实用方法组成，这些方法是<font color='red'>null-save（空指针安全的）</font>或<font color='red'>null-tolerant（容忍空指针的）</font>，用于计算对象的hashcode、返回对象的字符串表示形式、比较两个对象。</p>
+<p>该类提供了两个方法：</p>
+<ul>
+<li><code>public static boolean equals(Object a, Object b)</code>:判断两个对象是否相等。</li>
+<li>static boolean isNull(Object obj) 判断对象是否为null,如果为null返回true</li>
+</ul>
+<h2 id="1-equals方法"><a href="#1-equals方法" class="headerlink" title="1.equals方法"></a>1.equals方法</h2><p>在比较两个对象的时候，<font color='cornflowerblue'>Object的equals方法容易抛出空指针异常</font>，而Objects类中的equals方法就优化了这个问题。</p>
+<p>学习一下源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object a, Object b)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> (a == b) || (a != <span class="keyword">null</span> &amp;&amp; a.equals(b));</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-isNull"><a href="#2-isNull" class="headerlink" title="2.isNull"></a>2.isNull</h2><ul>
+<li>static boolean isNull(Object obj) 判断对象是否为null，如果为null返回true。</li>
+</ul>
+<p>该方法比较鸡肋。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Student s1 = <span class="keyword">null</span>;</span><br><span class="line">Student s2 = <span class="keyword">new</span> Student(<span class="string">"蔡徐坤"</span>, <span class="number">22</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// static boolean isNull(Object obj) 判断对象是否为null,如果为null返回true</span></span><br><span class="line">System.out.println(Objects.isNull(s1)); <span class="comment">// true</span></span><br><span class="line">System.out.println(Objects.isNull(s2)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -425,7 +440,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://jamesforlife.top/2020/07/25/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-1-%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%B8%80%E5%8D%8A%E7%9A%84%E5%80%BC/" title="剑指offer刷题(1)找出数组中出现次数超过数组长度一半的值" target="_blank" rel="external">http://jamesforlife.top/2020/07/25/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-1-%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E4%B8%80%E5%8D%8A%E7%9A%84%E5%80%BC/</a>
+      <a href="http://jamesforlife.top/2021/02/28/Object%E7%B1%BB%E6%80%BB%E7%BB%93/" title="Object类总结" target="_blank" rel="external">http://jamesforlife.top/2021/02/28/Object%E7%B1%BB%E6%80%BB%E7%BB%93/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -471,13 +486,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/07/26/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98-2-%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%90%88%E4%B8%BA%E7%9B%AE%E6%A0%87%E6%95%B0%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%80%BC%E7%9A%84%E4%B8%8B%E6%A0%87/" title="剑指offer刷题(2)两数之和"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/03/31/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-%E5%BA%94%E7%94%A8%E4%BA%8E%E9%9F%B3%E4%B9%90%E5%88%86%E7%A6%BB%E7%9A%84%E4%B8%80%E7%A7%8D%E7%A9%BA%E9%97%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" title="论文理解-应用于音乐分离的一种空间注意力机制"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/02/27/%E5%BC%82%E5%B8%B8%E6%80%BB%E7%BB%93/" title="异常总结"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
