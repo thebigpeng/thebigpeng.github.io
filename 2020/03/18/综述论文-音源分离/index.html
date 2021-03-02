@@ -18,12 +18,12 @@
   
   
   <title>[综述论文]音源分离 | Hexo</title>
-  <meta name="description" content="论文获取(预印本):An Overview of Lead and Accompaniment Separation in Music论文介绍  &amp;emsp;&amp;emsp;该综述论文为读者介绍了近50年来主唱人声与背景声分离领域【Lead and Accompaniment Separation】的发展，其中包含的了基础理论介绍及该领域发展历程。其目录结构如下：   &amp;emsp;章节一：介绍各章节内">
+  <meta name="description" content="论文获取(预印本):论文介绍  &amp;emsp;&amp;emsp;该综述论文为读者介绍了近50年来主唱人声与背景声分离领域【Lead and Accompaniment Separation】的发展，其中包含的了基础理论介绍及该领域发展历程。其目录结构如下：   &amp;emsp;章节一：介绍各章节内容  &amp;emsp;章节二：该领域重要基础概念  &amp;emsp;章节三：将主唱人声以谐波建模处理的研究分支  &amp;ems">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[综述论文]音源分离">
 <meta property="og:url" content="http://jamesforlife.top/2020/03/18/%E7%BB%BC%E8%BF%B0%E8%AE%BA%E6%96%87-%E9%9F%B3%E6%BA%90%E5%88%86%E7%A6%BB/index.html">
 <meta property="og:site_name" content="平平无奇勒布朗">
-<meta property="og:description" content="论文获取(预印本):An Overview of Lead and Accompaniment Separation in Music论文介绍  &amp;emsp;&amp;emsp;该综述论文为读者介绍了近50年来主唱人声与背景声分离领域【Lead and Accompaniment Separation】的发展，其中包含的了基础理论介绍及该领域发展历程。其目录结构如下：   &amp;emsp;章节一：介绍各章节内">
+<meta property="og:description" content="论文获取(预印本):论文介绍  &amp;emsp;&amp;emsp;该综述论文为读者介绍了近50年来主唱人声与背景声分离领域【Lead and Accompaniment Separation】的发展，其中包含的了基础理论介绍及该领域发展历程。其目录结构如下：   &amp;emsp;章节一：介绍各章节内容  &amp;emsp;章节二：该领域重要基础概念  &amp;emsp;章节三：将主唱人声以谐波建模处理的研究分支  &amp;ems">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-18T15:43:13.000Z">
 <meta property="article:modified_time" content="2020-03-21T10:48:53.122Z">
@@ -395,12 +395,6 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="论文获取-预印本-An-Overview-of-Lead-and-Accompaniment-Separation-in-Music"><a href="#论文获取-预印本-An-Overview-of-Lead-and-Accompaniment-Separation-in-Music" class="headerlink" title="论文获取(预印本):An Overview of Lead and Accompaniment Separation in Music"></a>论文获取(预印本):<a href="https://arxiv.org/abs/1804.08300" target="_blank" rel="noopener">An Overview of Lead and Accompaniment Separation in Music</a></h3><h2 id="论文介绍"><a href="#论文介绍" class="headerlink" title="论文介绍"></a>论文介绍</h2><p>  &emsp;&emsp;该综述论文为读者介绍了近50年来主唱人声与背景声分离领域<strong>【Lead and Accompaniment Separation】</strong>的发展，其中包含的了基础理论介绍及该领域发展历程。其目录结构如下：</p>
-<p>  &emsp;<strong>章节一：介绍各章节内容</strong><br>  &emsp;<strong>章节二：该领域重要基础概念</strong><br>  &emsp;<strong>章节三：将主唱人声以谐波建模处理的研究分支</strong><br>  &emsp;<strong>章节四：将伴奏视为冗余量，并用模型来实现分离任务的方法</strong><br>  &emsp;<strong>章节五：如何将前两种方法进行结合</strong><br>  &emsp;<strong>章节六：数据驱动方法，大型人声伴奏独立音源样本数据集</strong><br>  &emsp;<strong>章节七：音源信号的普遍性如何被用于设计分离算法(假设人声中心平移)</strong><br>  &emsp;<strong>章节八：如何评估人声分离后的品质</strong></p>
-<h2 id="一：基础概念"><a href="#一：基础概念" class="headerlink" title="一：基础概念"></a>一：基础概念</h2><h3 id="A-信号处理"><a href="#A-信号处理" class="headerlink" title="A.信号处理"></a>A.信号处理</h3><p> &emsp;&emsp;多通信号是由一些波简单组成的，通常立体音乐声包含两个信号波。传声器位移通常用固定的采样频来测量，在音乐处理中，通常采样频率为44.1kHz或48kHz，电话中一般是16kHz或8kHz，因为音乐信号比语音信号包含更高的频率内容。声音的时频(TF)表示是对波形的时变频谱进行编码的矩阵，它对整个波形在每个时间帧和通道都进行了编码，常用STFT来进行这个编码。STFT的幅度（能量）叫语谱图，对多通道混合信号，TF表示能计算所有通道，生成一个三维矩阵，包含频率，时间，和通道数。<br>  &emsp;&emsp;为什么用STFT来做这类工作的第一步是因为经STFT操作后的表示比原来的波形重叠部分更少，野菊更易于我们进行对混合的信号中分析、提取我们需要的单通道信号，并且能通过逆STFT变化恢复原来的波形。因此对信号的STFT表示进行处理可视为对原始波形的处理。通常假设音源谱是混合谱相加得到。<br>  &emsp;&emsp;许多方法分离音源的方法可理解为对混合信号进行滤波操作，课理解为对混合信号进行均衡操作，频率衰弱或者保持原样。通常是用TFmask来进行的，可以将其简单的理解为对混合信号TF表示的每一个元素添加了一个0到1之间的增益。它可以被理解为每隔几毫秒就改变一次设置的均衡器，这个几毫秒为STFT设置的窗长度，混合信号经掩模相乘后，通过反TF变换恢复分离信号。<br>  &emsp;&emsp;实际应用中mask设计方法有很多，一种是通过评估人声或者伴奏在混合信号谱中的分布，然后从混合谱中减去就能得到。另一种方法是分别估计人声和伴奏的谱，并将他们组合成一个mask，例如，可以将一个人声的mask视为人声的语谱在混合谱中的每个TFbin所占的比例，这类滤波器通常叫做维纳滤波器或者比例掩膜。</p>
-<h3 id="B-音乐和语音建模"><a href="#B-音乐和语音建模" class="headerlink" title="B.音乐和语音建模"></a>B.音乐和语音建模</h3><p>  &emsp;&emsp;语音处理中通常描述波形是否归属于一个或者两个不同的类别——是否为正弦曲线信号，或者是纯粹的音调亦或是噪声。一方面正弦曲线的形状在之后可以从之前的采样信号中猜出来，另一方面也将白噪声视为不可预测的信号并且它的语谱图能量分布到处都是。当所有的能量都包含在一个频率内时就能得到一个纯音信号。<br>  &emsp;&emsp;一个波形通常被建模为一些激励信号经滤波器处理后的输出，通常这个滤波器被假定认为是随频率平稳变化的，修改则只修改滤波器的包络，其余则对激励信号进行处理，这是语音建模思想的理论基础。<br>  &emsp;&emsp;<strong>[这部分不确定我理解正确没，请读者再次读下原文]</strong><br>  &emsp;</p>
-<h3 id="C-概率理论"><a href="#C-概率理论" class="headerlink" title="C.概率理论"></a>C.概率理论</h3><p>  &emsp;&emsp;概率理论十分重要，常被用来设计应用于很多数据分析和处理的方法上。应用在这里是把观察信号视为由混合信号组成，与声源特征相关的参数如音高或时间包络或信号混合的方式等，都对估计人声和伴奏信号有很大作用。一般讲概率模型理解为一个函数，从而可由这些参数得到观察值。可以了解下贝叶斯模型(BIC).这里提到了两种比较重要的模型，<strong>隐式马尔科夫模型(HMM)</strong>，它适用于时变相关的观察值，它定义了不同状态，每个状态都与一个明确的模型并包含了这些状态之间进行转化的参数。例如可以把领奏吉他演奏的音调分为尽可能多的状态，每个状态都有一个明确的谱。然后用维特比算法来估计给定序列最接近的状态序列。还有<strong>高斯混合模型(GMM)</strong>,它用高斯函数的加权和来近似任何分布，通常用于聚类当中。</p>
-<h2 id="基于谐音（谐波）的人声建模"><a href="#基于谐音（谐波）的人声建模" class="headerlink" title="基于谐音（谐波）的人声建模"></a>基于谐音（谐波）的人声建模</h2><p>  &emsp;&emsp;该类方法的核心在于人声旋律大部分是谐波，因此你可以找到一个基频，如果我们能追踪到音高，那我们就能根据基频谐波去估计人声的能量并重建人声。这类方法的第一步是 </p>
 
       
     </div>

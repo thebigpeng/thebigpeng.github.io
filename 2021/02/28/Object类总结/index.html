@@ -26,7 +26,7 @@
 <meta property="og:description" content="Object类总结1.什么是Object类？Object是Java中的祖宗类，java中的所有类要么默认继承Object类，要么间接继承它，因此Object类中的方法所有方法都能使用，比较常见的方法有public String toString()、public boolean equals(Object obj)等。 2.toString()方法 public String toString()">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-28T06:58:26.000Z">
-<meta property="article:modified_time" content="2021-02-28T07:42:09.129Z">
+<meta property="article:modified_time" content="2021-02-28T08:19:23.403Z">
 <meta property="article:author" content="Peng Chenhui">
 <meta property="article:tag" content="基础知识点">
 <meta name="twitter:card" content="summary">
@@ -394,43 +394,6 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="Object类总结"><a href="#Object类总结" class="headerlink" title="Object类总结"></a>Object类总结</h1><h2 id="1-什么是Object类？"><a href="#1-什么是Object类？" class="headerlink" title="1.什么是Object类？"></a>1.什么是Object类？</h2><p>Object是Java中的祖宗类，java中的所有类要么默认继承Object类，要么间接继承它，因此Object类中的方法所有方法都能使用，比较常见的方法有<code>public String toString()</code>、<code>public boolean equals(Object obj)</code>等。</p>
-<h2 id="2-toString-方法"><a href="#2-toString-方法" class="headerlink" title="2.toString()方法"></a>2.toString()方法</h2><ul>
-<li><code>public String toString()</code>：返回该对象的字符串表示</li>
-</ul>
-<ol>
-<li>该方法默认是<font color='red'>返回</font>当前<font color='red'>对象在</font><font color='red'>堆内存</font>中的<font color='red'>地址信息</font>，</li>
-<li>默认的地址信息格式：<code>类的全限名(包名)@内存地址</code></li>
-</ol>
-<p><font color='cornflowerblue'>问题</font>：开发中直接输出对象，默认输出对象的地址是往往是毫无无意的，我们往往需要输出对象的内容数据信息。在实际开发中我们往往需要<font color='red'>把父类的toString()方法重写</font>来满足开发需求。</p>
-<p>例如自定义的Person类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Person&#123;"</span> + <span class="string">"name='"</span> + name + <span class="string">'\''</span> + <span class="string">", age="</span> + age + <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 省略构造器与Getter Setter</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="3-equals-方法"><a href="#3-equals-方法" class="headerlink" title="3.equals()方法"></a>3.equals()方法</h2><ol>
-<li>该方法<font color='red'>默认是比较两个对象的地址</font>是否相同，相同则返回true，反之返回false。</li>
-<li>直接比较两个对象的地址是否相等完全可以使用 <code>==</code> 来替代，因此可以<font color='red'>重写该方法来定制自己的比较规则</font>。</li>
-</ol>
-<p>如果希望进行对象的内容比较，即所有或指定的部分成员变量相同就判定两个对象相同，则可以覆盖重写equals方法。例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 如果对象地址一样，则认为相同</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">// 如果参数为空，或者类型信息不一样，则认为不同</span></span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass())</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">// 转换为当前类型</span></span><br><span class="line">        Person person = (Person) o;</span><br><span class="line">        <span class="comment">// 要求基本类型相等，并且将引用类型交给java.util.Objects类的equals静态方法取用结果</span></span><br><span class="line">        <span class="keyword">return</span> age == person.age &amp;&amp; Objects.equals(name, person.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Objects类"><a href="#Objects类" class="headerlink" title="Objects类"></a>Objects类</h1><p>Objects类在JDK1.7及以上包含，依旧是<font color='red'>继承了Object类</font>。它提供了一些方法来操作对象，它由一些静态的实用方法组成，这些方法是<font color='red'>null-save（空指针安全的）</font>或<font color='red'>null-tolerant（容忍空指针的）</font>，用于计算对象的hashcode、返回对象的字符串表示形式、比较两个对象。</p>
-<p>该类提供了两个方法：</p>
-<ul>
-<li><code>public static boolean equals(Object a, Object b)</code>:判断两个对象是否相等。</li>
-<li>static boolean isNull(Object obj) 判断对象是否为null,如果为null返回true</li>
-</ul>
-<h2 id="1-equals方法"><a href="#1-equals方法" class="headerlink" title="1.equals方法"></a>1.equals方法</h2><p>在比较两个对象的时候，<font color='cornflowerblue'>Object的equals方法容易抛出空指针异常</font>，而Objects类中的equals方法就优化了这个问题。</p>
-<p>学习一下源码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object a, Object b)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> (a == b) || (a != <span class="keyword">null</span> &amp;&amp; a.equals(b));</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-isNull"><a href="#2-isNull" class="headerlink" title="2.isNull"></a>2.isNull</h2><ul>
-<li>static boolean isNull(Object obj) 判断对象是否为null，如果为null返回true。</li>
-</ul>
-<p>该方法比较鸡肋。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Student s1 = <span class="keyword">null</span>;</span><br><span class="line">Student s2 = <span class="keyword">new</span> Student(<span class="string">"蔡徐坤"</span>, <span class="number">22</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// static boolean isNull(Object obj) 判断对象是否为null,如果为null返回true</span></span><br><span class="line">System.out.println(Objects.isNull(s1)); <span class="comment">// true</span></span><br><span class="line">System.out.println(Objects.isNull(s2)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
 
       
     </div>

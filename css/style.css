@@ -4997,6 +4997,7 @@ a.label:focus {
   transition: all 0.2s ease-out;
 }
 
+
 /*
  * Component: table
  * css like github
@@ -9200,6 +9201,9 @@ body.okayNav-loaded {
   .hidden-print {
     display: none !important;
   }
+
+  
+
 }
 
 @media (max-device-width: 480px) and (orientation: landscape) {

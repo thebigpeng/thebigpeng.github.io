@@ -26,7 +26,7 @@
 <meta property="og:description" content="Date类1.概述jar包：java.util.Date  public Date()：从运行程序的此时此刻到时间原点经历的毫秒值,转换成Date对象，分配Date对象并初始化此对象，以表示分配它的时间（精确到毫秒）。 public Date(long date)：将指定参数的毫秒值date,转换成Date对象，分配Date对象并初始化此对象，以表示自从标准基准时间（称为“历元（epoch）”，即">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-28T08:22:44.000Z">
-<meta property="article:modified_time" content="2021-02-28T08:34:11.280Z">
+<meta property="article:modified_time" content="2021-03-01T07:21:30.469Z">
 <meta property="article:author" content="Peng Chenhui">
 <meta property="article:tag" content="基础知识点">
 <meta name="twitter:card" content="summary">
@@ -394,23 +394,6 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><p>jar包：<code>java.util.Date</code></p>
-<ul>
-<li><code>public Date()</code>：从运行程序的<font color='red'>此时此刻到时间原点</font>经历的毫秒值,转换成<font color='red'>Date对象</font>，分配Date对象并初始化此对象，以表示分配它的时间（精确到毫秒）。</li>
-<li><code>public Date(long date)</code>：将指定参数的毫秒值date,转换成Date对象，分配Date对象并初始化此对象，以表示自从标准基准时间（称为“历元（epoch）”，即1970年1月1日00:00:00 GMT）以来的指定毫秒数。</li>
-</ul>
-<p>使用无参构造，可以自动设置当前系统时间的毫秒时刻；指定long类型的构造参数，可以自定义毫秒时刻。例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01Date</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建日期对象，把当前的时间</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> Date()); <span class="comment">// Tue Jan 16 14:37:35 CST 2020</span></span><br><span class="line">        <span class="comment">// 创建日期对象，把当前的毫秒值转成日期对象</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> Date(<span class="number">0L</span>)); <span class="comment">// Thu Jan 01 08:00:00 CST 1970</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-Date常用方法"><a href="#2-Date常用方法" class="headerlink" title="2.Date常用方法"></a>2.Date常用方法</h2><ul>
-<li><code>public long getTime()</code> 把日期对象转换成对应的时间毫秒值。</li>
-<li><code>public void setTime(long time)</code> 把方法参数给定的毫秒值设置给日期对象</li>
-</ul>
-<p>示例代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateDemo02</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建日期对象</span></span><br><span class="line">        Date d = <span class="keyword">new</span> Date();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//public long getTime():获取的是日期对象从1970年1月1日 00:00:00到现在的毫秒值</span></span><br><span class="line">        <span class="comment">//System.out.println(d.getTime());</span></span><br><span class="line">        <span class="comment">//System.out.println(d.getTime() * 1.0 / 1000 / 60 / 60 / 24 / 365 + "年");</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//public void setTime(long time):设置时间，给的是毫秒值</span></span><br><span class="line">        <span class="comment">//long time = 1000*60*60;</span></span><br><span class="line">        <span class="keyword">long</span> time = System.currentTimeMillis();</span><br><span class="line">        d.setTime(time);</span><br><span class="line"></span><br><span class="line">        System.out.println(d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>小结：Date表示特定的时间瞬间，我们可以使用Date对象对时间进行操作。</p>
-</blockquote>
 
       
     </div>
