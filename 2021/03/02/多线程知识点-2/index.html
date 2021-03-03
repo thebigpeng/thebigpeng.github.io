@@ -28,8 +28,10 @@
 <meta property="og:image" content="http://jamesforlife.top/2021/03/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9-2/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
 <meta property="og:image" content="http://jamesforlife.top/2021/03/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9-2/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%8E%9F%E7%90%86.bmp">
 <meta property="og:image" content="http://jamesforlife.top/2021/03/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9-2/%E6%AD%BB%E9%94%81%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta property="og:image" content="http://jamesforlife.top/2021/03/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9-2/%E6%9C%AC%E5%9C%B0%E5%86%85%E5%AD%98%E5%92%8C%E4%B8%BB%E5%86%85%E5%AD%98%E7%9A%84%E5%85%B3%E7%B3%BB.png">
+<meta property="og:image" content="http://jamesforlife.top/2021/03/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9-2/%E4%BB%A3%E7%A0%81%E5%87%BA%E9%94%99%E5%88%86%E6%9E%901.png">
 <meta property="article:published_time" content="2021-03-02T07:26:20.000Z">
-<meta property="article:modified_time" content="2021-03-03T03:35:34.002Z">
+<meta property="article:modified_time" content="2021-03-03T09:20:16.700Z">
 <meta property="article:author" content="Peng Chenhui">
 <meta property="article:tag" content="多线程">
 <meta name="twitter:card" content="summary">
@@ -388,10 +390,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9-2/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.7k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 4.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 14(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 16(分)</span>
 	
 
       </div>
@@ -429,8 +431,10 @@
 <li><a href="#521变量不可见行的内存语义">5.2.1变量不可见行的内存语义</a></li>
 </ul>
 </li>
+<li><a href="#522变量不可见性的解决方案">5.2.2变量不可见性的解决方案</a></li>
 </ul>
 </li>
+<li><a href="#6java中的原子性操作">6.java中的原子性操作</a></li>
 </ul>
 <!-- tocstop -->
 
@@ -608,6 +612,40 @@
 <li>线程对变量的所有操作（读、取）都必须在工作内存中完成，而不能直接读写主内存中的变量。</li>
 <li>不同线程之间也不能直接访问对方工作内存中的变量，线程间变量的值的传递需要通过主内存中转来完成。</li>
 </ul>
+<p>本地内存和主内存之间的关系：</p>
+<p><img src="%E6%9C%AC%E5%9C%B0%E5%86%85%E5%AD%98%E5%92%8C%E4%B8%BB%E5%86%85%E5%AD%98%E7%9A%84%E5%85%B3%E7%B3%BB.png" alt="alt"></p>
+<p>前一例代码的原因如图所示：</p>
+<p><img src="%E4%BB%A3%E7%A0%81%E5%87%BA%E9%94%99%E5%88%86%E6%9E%901.png" alt="alt"></p>
+<p><font color="cornflowerblue">内存不可见性的原因</font>：</p>
+<ul>
+<li>每个线程都有自己的工作内存，线程都是从主内存拷贝共享变量的副本值。</li>
+<li>每个线程都是在自己的工作内存中操作共享变量的。</li>
+</ul>
+<h3><span id="522变量不可见性的解决方案">5.2.2变量不可见性的解决方案</span></h3><p>两种常见解决方案：</p>
+<ul>
+<li><font color="cornflowerblue">加锁</font></li>
+<li>对共享变量进行<font color="cornflowerblue">volatile关键字修饰</font></li>
+</ul>
+<p><strong>加锁（synchronized）的解决流程如下：</strong></p>
+<ol>
+<li>线程获得锁</li>
+<li>线程<font color="cornflowerblue">清空工作内存</font>（<font color="red">由于加了锁</font>）</li>
+<li>线程从主内存拷贝共享变量的最新值到工作内存成为副本</li>
+<li>执行线程任务代码</li>
+<li>将修改后的副本的值刷新到主内存中</li>
+<li>线程释放锁</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">visibilityDemo</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//1.启动子线程，修改flag的变量为true，</span></span><br><span class="line">        VolatileDemo t = <span class="keyword">new</span> VolatileDemo();</span><br><span class="line">        t.start();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//加锁！避免并发编程的变量的不可见性。</span></span><br><span class="line">        <span class="keyword">synchronized</span> (visibilityDemo<span class="class">.<span class="keyword">class</span>)</span>&#123;</span><br><span class="line">            <span class="comment">//2.主线程检查子线程flag变量是否为true</span></span><br><span class="line">            <span class="keyword">while</span> (t.isFlag())&#123;</span><br><span class="line">                System.out.println(<span class="string">"主线程进入执行！"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用volatile关键字修饰</strong>该变量：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VolatileDemo</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="comment">//volatile关键字修饰</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>volatile</strong>关键字<font color="cornflowerblue">工作原理</font>：</p>
+<blockquote>
+<p>当一个变量被声明为<strong>volatile</strong>时，线程在写入变量时不会把值缓存在寄存器或者其它地方，而是会<font color="red">把值刷新到主内存</font>。当其它线程读取该共享变量时，会<font color="red">从主内存重新获取最新值</font>，而不是使用当前线程的工作内存中的副本值。</p>
+<p>当线程写入<strong>volatile</strong>变量值就相当于线程退出<strong>synchronized</strong>同步块，当线程读取<strong>volatile</strong>变量值时就相当于进入同步块(先清空本地内存变量值，再从主内存获取最新值)。</p>
+</blockquote>
+<h2><span id="6java中的原子性操作">6.java中的原子性操作</span></h2><p><font color="cornflowerblue">原子性操作</font>即执行一系列操作时，要么全部一起执行，要么全部都不执行，不存在只执行其中一部分操作的情况。</p>
 
       
     </div>
