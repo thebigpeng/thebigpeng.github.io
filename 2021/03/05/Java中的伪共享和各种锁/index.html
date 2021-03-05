@@ -17,22 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>[论文理解]WAVE-U-NET | Hexo</title>
-  <meta name="description" content="论文获取:Wave-U-Net: A Multi-Scale Neural Network for End-to-End Audio Source Separation  原文翻译翻译参考此链接(https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_42788078&#x2F;article&#x2F;details&#x2F;103233041?fps&#x3D;1&amp;locationNum&#x3D;2) 个人理解及想法(暂时还没看">
+  <title>Java中的伪共享和各种锁 | Hexo</title>
+  <meta name="description" content="行路难！多歧路，今安在？乘风破浪会有时，直挂云帆济沧海。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[论文理解]WAVE-U-NET">
-<meta property="og:url" content="http://jamesforlife.top/2020/03/04/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-WAVE-U-NET/index.html">
+<meta property="og:title" content="Java中的伪共享和各种锁">
+<meta property="og:url" content="http://jamesforlife.top/2021/03/05/Java%E4%B8%AD%E7%9A%84%E4%BC%AA%E5%85%B1%E4%BA%AB%E5%92%8C%E5%90%84%E7%A7%8D%E9%94%81/index.html">
 <meta property="og:site_name" content="平平无奇勒布朗">
-<meta property="og:description" content="论文获取:Wave-U-Net: A Multi-Scale Neural Network for End-to-End Audio Source Separation  原文翻译翻译参考此链接(https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_42788078&#x2F;article&#x2F;details&#x2F;103233041?fps&#x3D;1&amp;locationNum&#x3D;2) 个人理解及想法(暂时还没看">
+<meta property="og:description" content="行路难！多歧路，今安在？乘风破浪会有时，直挂云帆济沧海。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-04T13:34:21.000Z">
-<meta property="article:modified_time" content="2020-03-05T14:03:03.696Z">
+<meta property="article:published_time" content="2021-03-05T03:23:47.000Z">
+<meta property="article:modified_time" content="2021-03-05T03:23:47.747Z">
 <meta property="article:author" content="Peng Chenhui">
-<meta property="article:tag" content="ML">
-<meta property="article:tag" content="AUDIO SOURCE SEPARATION">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://jamesforlife.top/2020/03/04/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-WAVE-U-NET/index.html">
+  <link rel="canonical" href="http://jamesforlife.top/2021/03/05/Java%E4%B8%AD%E7%9A%84%E4%BC%AA%E5%85%B1%E4%BA%AB%E5%92%8C%E5%90%84%E7%A7%8D%E9%94%81/index.html">
   
     <link rel="alternate" href="/atom.xml" title="平平无奇勒布朗" type="application/atom+xml">
   
@@ -341,14 +339,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-论文理解-WAVE-U-NET" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Java中的伪共享和各种锁" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      [论文理解]WAVE-U-NET
+      Java中的伪共享和各种锁
     </h1>
   
 
@@ -356,22 +354,12 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/03/04/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-WAVE-U-NET/" class="article-date">
-	  <time datetime="2020-03-04T13:34:21.000Z" itemprop="datePublished">2020-03-04</time>
+	<a href="/2021/03/05/Java%E4%B8%AD%E7%9A%84%E4%BC%AA%E5%85%B1%E4%BA%AB%E5%92%8C%E5%90%84%E7%A7%8D%E9%94%81/" class="article-date">
+	  <time datetime="2021-03-05T03:23:47.000Z" itemprop="datePublished">2021-03-05</time>
 	</a>
 </span>
         
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a>
-  </span>
-
         
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/AUDIO-SOURCE-SEPARATION/" rel="tag">AUDIO SOURCE SEPARATION</a>, <a class="article-tag-link" href="/tags/ML/" rel="tag">ML</a>
-  </span>
-
 
         
 	<span class="article-read hidden-xs">
@@ -382,10 +370,10 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/03/04/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-WAVE-U-NET/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/05/Java%E4%B8%AD%E7%9A%84%E4%BC%AA%E5%85%B1%E4%BA%AB%E5%92%8C%E5%90%84%E7%A7%8D%E9%94%81/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 61(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 0(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -395,11 +383,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>论文获取:<a href="https://arxiv.org/abs/1806.03185" target="_blank" rel="noopener">Wave-U-Net: A Multi-Scale Neural Network for End-to-End Audio Source Separation</a></p>
-<hr>
-<h2><span id="原文翻译">原文翻译</span></h2><p>翻译参考此链接(<a href="https://blog.csdn.net/weixin_42788078/article/details/103233041?fps=1&amp;locationNum=2" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42788078/article/details/103233041?fps=1&amp;locationNum=2</a>)</p>
-<h2><span id="个人理解及想法">个人理解及想法</span></h2><p>(暂时还没看完，随时更新中。。。)</p>
-
+        
       
     </div>
     <div class="article-footer">
@@ -408,7 +392,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://jamesforlife.top/2020/03/04/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-WAVE-U-NET/" title="[论文理解]WAVE-U-NET" target="_blank" rel="external">http://jamesforlife.top/2020/03/04/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-WAVE-U-NET/</a>
+      <a href="http://jamesforlife.top/2021/03/05/Java%E4%B8%AD%E7%9A%84%E4%BC%AA%E5%85%B1%E4%BA%AB%E5%92%8C%E5%90%84%E7%A7%8D%E9%94%81/" title="Java中的伪共享和各种锁" target="_blank" rel="external">http://jamesforlife.top/2021/03/05/Java%E4%B8%AD%E7%9A%84%E4%BC%AA%E5%85%B1%E4%BA%AB%E5%92%8C%E5%90%84%E7%A7%8D%E9%94%81/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -454,13 +438,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/03/05/%E8%AE%BA%E6%96%87%E7%90%86%E8%A7%A3-WaveNet/" title="[论文理解]WaveNet"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/03/04/%E8%BD%AC%E4%B8%80%E7%AF%87hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%86%99%E4%BD%9C%E6%A0%BC%E5%BC%8F/" title="Markdown语法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/03/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9-2/" title="多线程知识点(2)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
