@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>java面对对象三大特性 | Hexo</title>
+  <meta name="description" content="1.继承 1.1继承的概念 1.2好处 1.3重写父类方法 1.4继承的初始化顺序 1.5final关键字 1.6super关键字   2.封装 2.1概念 2.2好处 2.3实现步骤 2.4四种访问修饰符作用范围 2.5使用内部类   3.多态 3.1概念 3.2引用多态 3.3方法多态 3.4多态总结      1.继承1.1继承的概念继承是类与类的一种关系，是一种“is a”的关系。比">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java面对对象三大特性">
+<meta property="og:url" content="http://jamesforlife.top/2021/03/06/java%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/index.html">
+<meta property="og:site_name" content="平平无奇勒布朗">
+<meta property="og:description" content="1.继承 1.1继承的概念 1.2好处 1.3重写父类方法 1.4继承的初始化顺序 1.5final关键字 1.6super关键字   2.封装 2.1概念 2.2好处 2.3实现步骤 2.4四种访问修饰符作用范围 2.5使用内部类   3.多态 3.1概念 3.2引用多态 3.3方法多态 3.4多态总结      1.继承1.1继承的概念继承是类与类的一种关系，是一种“is a”的关系。比">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-06T14:01:13.000Z">
+<meta property="article:modified_time" content="2021-03-07T07:29:48.694Z">
+<meta property="article:author" content="Peng Chenhui">
+<meta property="article:tag" content="基础知识点">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://jamesforlife.top/2021/03/06/java%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="平平无奇勒布朗" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/thebigpeng" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">平平无奇勒布朗</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">leaner</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> SiChuang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/thebigpeng" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E5%9F%BA%E7%A1%80/">Java基础</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E5%AE%83/">其它</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AUDIO-SOURCE-SEPARATION/" rel="tag">AUDIO SOURCE SEPARATION</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">MySQL知识点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Website/" rel="tag">Website</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">基础知识点</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">知识点</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/AUDIO-SOURCE-SEPARATION/" style="font-size: 13.67px;">AUDIO SOURCE SEPARATION</a> <a href="/tags/Blog/" style="font-size: 13px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.17px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13.83px;">Java</a> <a href="/tags/ML/" style="font-size: 13.83px;">ML</a> <a href="/tags/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 13px;">MySQL知识点</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Website/" style="font-size: 13px;">Website</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 14px;">基础知识点</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 13.5px;">多线程</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 13.17px;">知识点</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/07/final%E6%80%BB%E7%BB%93/" class="title">final总结</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-07T08:23:33.000Z" itemprop="datePublished">2021-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/07/String-StringBuilder-StringBuffer%E5%8C%BA%E5%88%AB/" class="title">String、StringBuilder和StringBuffer区别</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-07T07:29:22.000Z" itemprop="datePublished">2021-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/06/java%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" class="title">java面对对象三大特性</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-06T14:01:13.000Z" itemprop="datePublished">2021-03-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/06/Java%E4%B8%AD%E7%9A%84IO/" class="title">Java中的IO</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-06T11:52:14.000Z" itemprop="datePublished">2021-03-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/06/java%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" class="title">java基本类型</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-06T08:17:15.000Z" itemprop="datePublished">2021-03-06</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-java的三大特性" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java面对对象三大特性
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/03/06/java%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" class="article-date">
+	  <time datetime="2021-03-06T14:01:13.000Z" itemprop="datePublished">2021-03-06</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">基础知识点</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/06/java%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <!-- toc -->
+
+<ul>
+<li><a href="#1继承">1.继承</a><ul>
+<li><a href="#11继承的概念">1.1继承的概念</a></li>
+<li><a href="#12好处">1.2好处</a></li>
+<li><a href="#13重写父类方法">1.3重写父类方法</a></li>
+<li><a href="#14继承的初始化顺序">1.4继承的初始化顺序</a></li>
+<li><a href="#15final关键字">1.5final关键字</a></li>
+<li><a href="#16super关键字">1.6super关键字</a></li>
+</ul>
+</li>
+<li><a href="#2封装">2.封装</a><ul>
+<li><a href="#21概念">2.1概念</a></li>
+<li><a href="#22好处">2.2好处</a></li>
+<li><a href="#23实现步骤">2.3实现步骤</a></li>
+<li><a href="#24四种访问修饰符作用范围">2.4四种访问修饰符作用范围</a></li>
+<li><a href="#25使用内部类">2.5使用内部类</a></li>
+</ul>
+</li>
+<li><a href="#3多态">3.多态</a><ul>
+<li><a href="#31概念">3.1概念</a></li>
+<li><a href="#32引用多态">3.2引用多态</a></li>
+<li><a href="#33方法多态">3.3方法多态</a></li>
+<li><a href="#34多态总结">3.4多态总结</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+<h2><span id="1继承">1.继承</span></h2><h3><span id="11继承的概念">1.1继承的概念</span></h3><p><font color="cornflowerblue">继承是类与类的一种关系，是一种“is a”的关系</font>。比如“狗”继承“动物”，这里动物类是狗类的父类或者基类，狗类是动物类的子类或者派生类。</p>
+<p>java中的继承是<strong><font color="red">单继承</font></strong>，即<strong><font color="red">一个类只有一个父类</font>。</strong></p>
+<h3><span id="12好处">1.2好处</span></h3><p><font color="orange">子类可以通过继承拥有父类的所有属性和方法</font>（<font color="cornflowerblue">除了private修饰的</font>属性不能拥有）从而实现了实现代码的复用。</p>
+<h3><span id="13重写父类方法">1.3重写父类方法</span></h3><p>子类如果对继承的父类的方法不满意（不适合），可以自己编写继承的方法，这种方式就称为<strong>方法的重写。当调用方法时会优先调用子类的方法。</strong></p>
+<p>　<strong>重写要注意：</strong></p>
+<p>　   a、返回值类型</p>
+<p>　　b、方法名</p>
+<p>　　c、参数类型及个数</p>
+<p>　都要与父类继承的方法相同，才叫方法的重写。</p>
+<p>　<strong>重载和重写的区别：</strong></p>
+<p>　　<font color="cornflowerblue">方法重载</font>：在同一个类中<font color="orange">处理不同数据的多个相同方法名的多态手段</font>。</p>
+<p>　　<font color="cornflowerblue">方法重写</font>：相对继承而言，子类中对父类已经存在的方法进行区别化的修改。</p>
+<h3><span id="14继承的初始化顺序">1.4继承的初始化顺序</span></h3><ol>
+<li>初始化父类再初始化子类</li>
+<li>先执行初始化对象中属性，再执行构造方法中的初始化。</li>
+</ol>
+<p>　基于上面两点，我们就知道实例化一个子类，java程序的执行顺序是：</p>
+<p>　<strong>父类对象属性初始化—-&gt;父类对象构造方法—-&gt;子类对象属性初始化—&gt;子类对象构造方法</strong>　　</p>
+<h3><span id="15final关键字">1.5final关键字</span></h3><p>使用final关键字做标识有“最终的”含义。</p>
+<p>　　1. final 修饰类，则该类<strong>不允许被继承。</strong></p>
+<p>　　2. final 修饰方法，则该方法不允许被<strong>覆盖(重写)</strong>。</p>
+<p>　　3. final 修饰属性，则该类的该属性不会进行隐式的初始化，所以 该final 属性的<strong>初始化属性必须有值</strong>，或在<strong>构造方法中赋值(但只能选其一，且必须选其一，因为没有默认值！)，</strong>且初始化之后就不能改了，<strong>只能赋值一次</strong>。</p>
+<p>　　4. final 修饰变量，则该变量的值只能赋一次值，在声明变量的时候才能赋值，即变为<strong>常量</strong>。</p>
+<h3><span id="16super关键字">1.6super关键字</span></h3><p>在对象的内部使用，可以代表父类对象。例如：</p>
+<p>　　1、访问父类的属性：super.age</p>
+<p>　　 2、访问父类的方法：super.eat()</p>
+<h2><span id="2封装">2.封装</span></h2><h3><span id="21概念">2.1概念</span></h3><p>封装就是将类的某些信息隐藏在类内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问。（<font color="orange">get/set</font>）</p>
+<h3><span id="22好处">2.2好处</span></h3><ul>
+<li>只能通过规定的方法访问数据。</li>
+<li>隐藏类的实例细节，方便修改和实现。　</li>
+</ul>
+<h3><span id="23实现步骤">2.3实现步骤</span></h3><ol>
+<li>修改类属性的可见性</li>
+<li>创建getter/setter方法</li>
+<li>在getter/setter方法中加入属性控制语句</li>
+</ol>
+<h3><span id="24四种访问修饰符作用范围">2.4四种访问修饰符作用范围</span></h3><table>
+<thead>
+<tr>
+<th>访问修饰符</th>
+<th>本类</th>
+<th>同包</th>
+<th>子类</th>
+<th>其它</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><font color="cornflowerblue">private</font></strong></td>
+<td>可以</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>默认</td>
+<td>可以</td>
+<td>可以</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><font color="cornflowerblue">protected</font></strong></td>
+<td>可以</td>
+<td>可以</td>
+<td>可以</td>
+<td></td>
+</tr>
+<tr>
+<td><strong><font color="cornflowerblue">public</font></strong></td>
+<td>可以</td>
+<td>可以</td>
+<td>可以</td>
+<td>可以</td>
+</tr>
+</tbody></table>
+<h3><span id="25使用内部类">2.5使用内部类</span></h3><p><font color="cornflowerblue">内部类（ Inner Class ）</font>就是定义在另外一个类<strong>里面</strong>的类。与之对应，包含内部类的类被称为外部类。</p>
+<p>作用：</p>
+<ol>
+<li>内部类提供了<strong>更好的封装</strong>，可以把内部类<strong>隐藏</strong>在外部类之内，<strong>不允许</strong>同一个包中的其他类访问该类。</li>
+<li>内部类的方法可以<strong>直接访问外部类的所有数据</strong>，包括<strong>私有的数据</strong>。</li>
+<li>内部类所实现的功能使用外部类同样可以实现，只是有时使用内部类更方便。</li>
+</ol>
+<p>内部类种类：</p>
+<ul>
+<li>成员内部类</li>
+<li>静态内部类</li>
+<li>方法内部类</li>
+<li>匿名内部类　　</li>
+</ul>
+<h2><span id="3多态">3.多态</span></h2><h3><span id="31概念">3.1概念</span></h3><p>多态就是<strong>对象的多种形态。</strong></p>
+<p>java中的多态体现在以下两个方main：</p>
+<ul>
+<li><font color="orange">引用多态</font></li>
+<li><font color="orange">方法多态</font></li>
+</ul>
+<h3><span id="32引用多态">3.2引用多态</span></h3><ul>
+<li>父类的引用可以指向本类的对象；</li>
+<li>父类的引用可以指向子类的对象；</li>
+</ul>
+<p>示例代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">multipleDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog1 = <span class="keyword">new</span> Animal(); <span class="comment">//父类的引用指向本类</span></span><br><span class="line">        Animal dog2 = <span class="keyword">new</span> Dog(); <span class="comment">//父类的引用指向子类</span></span><br><span class="line">        <span class="comment">//Dog ani = new Animal();报error</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码Dog类是Animal类的子类。</p>
+<p><font color="cornflowerblue">为什么子类的引用不能用来指向父类的对象呢？</font></p>
+<h3><span id="33方法多态">3.3方法多态</span></h3><ul>
+<li>创建本类对象时，调用的方法为本类方法；</li>
+<li>创建子类对象时，调用的方法为子类重写的方法或者继承的方法；</li>
+</ul>
+<h3><span id="34多态总结">3.4多态总结</span></h3><p> <strong><font color="orange">继承是多态的基础。</font></strong></p>
+<ul>
+<li>父类引用可以指向子类对象，子类引用不能指向父类对象。</li>
+<li>把子类对象直接赋给父类引用叫<strong>upcasting</strong>向上转型，向上转型不用强制转型。如Father father = new Son();</li>
+<li>把指向子类对象的父类引用赋给子类引用叫向下转型（<strong>downcasting</strong>），要强制转型。如father就是一个指向子类对象的父类引用，把father赋给子类引用son 即Son son =（Son）father；</li>
+<li><strong>upcasting</strong> 会<font color="cornflowerblue">丢失子类特有的方法</font>,但是子类<strong>overriding</strong> 父类的方法，子类方法有效</li>
+<li>向上转型的作用，减少重复代码，父类为参数，调有时用子类作为参数，就是利用了向上转型。这样使代码变得简洁。体现了JAVA的抽象编程思想。</li>
+<li>变量不能被重写（覆盖），”重写“的概念只针对方法，如果在子类中”重写“了父类中的变量，那么在编译时会报错。</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://jamesforlife.top/2021/03/06/java%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" title="java面对对象三大特性" target="_blank" rel="external">http://jamesforlife.top/2021/03/06/java%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/thebigpeng" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/thebigpeng" target="_blank"><span class="text-dark">平平无奇勒布朗</span><small class="ml-1x">leaner</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/03/07/String-StringBuilder-StringBuffer%E5%8C%BA%E5%88%AB/" title="String、StringBuilder和StringBuffer区别"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/03/06/Java%E4%B8%AD%E7%9A%84IO/" title="Java中的IO"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/thebigpeng" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2021 Peng Chenhui
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'kIhANPl3kQcs73Gw02jIL1uB-gzGzoHsz',
+    appKey: 'Svz87iHFwHxD6nIjCtxsxmY5',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
