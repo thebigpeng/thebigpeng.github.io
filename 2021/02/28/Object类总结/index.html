@@ -18,15 +18,15 @@
   
   
   <title>Object类总结 | Hexo</title>
-  <meta name="description" content="Object类总结1.什么是Object类？Object是Java中的祖宗类，java中的所有类要么默认继承Object类，要么间接继承它，因此Object类中的方法所有方法都能使用，比较常见的方法有public String toString()、public boolean equals(Object obj)等。 2.toString()方法 public String toString()">
+  <meta name="description" content="Object类总结 1.什么是Object类？ 2.toString()方法 3.equals()方法 4.hashCode 与 equals 4.1什么是hashCode() 4.2为什么要有hashCode() 4.3hashCode（）与 equals（）的相关规定     Objects类 1.equals方法 2.isNull      Object类总结1.什么是Object类？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Object类总结">
 <meta property="og:url" content="http://jamesforlife.top/2021/02/28/Object%E7%B1%BB%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="平平无奇勒布朗">
-<meta property="og:description" content="Object类总结1.什么是Object类？Object是Java中的祖宗类，java中的所有类要么默认继承Object类，要么间接继承它，因此Object类中的方法所有方法都能使用，比较常见的方法有public String toString()、public boolean equals(Object obj)等。 2.toString()方法 public String toString()">
+<meta property="og:description" content="Object类总结 1.什么是Object类？ 2.toString()方法 3.equals()方法 4.hashCode 与 equals 4.1什么是hashCode() 4.2为什么要有hashCode() 4.3hashCode（）与 equals（）的相关规定     Objects类 1.equals方法 2.isNull      Object类总结1.什么是Object类？">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-28T06:58:26.000Z">
-<meta property="article:modified_time" content="2021-02-28T08:19:23.403Z">
+<meta property="article:modified_time" content="2021-03-08T03:46:43.283Z">
 <meta property="article:author" content="Peng Chenhui">
 <meta property="article:tag" content="基础知识点">
 <meta name="twitter:card" content="summary">
@@ -211,7 +211,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E5%9F%BA%E7%A1%80/">Java基础</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E5%AE%83/">其它</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E5%9F%BA%E7%A1%80/">Java基础</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E9%9D%A2%E7%BB%8F/">Java面经</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E5%AE%83/">其它</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -221,7 +221,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AUDIO-SOURCE-SEPARATION/" rel="tag">AUDIO SOURCE SEPARATION</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">MySQL知识点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Website/" rel="tag">Website</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">基础知识点</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">知识点</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AUDIO-SOURCE-SEPARATION/" rel="tag">AUDIO SOURCE SEPARATION</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">MySQL知识点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Website/" rel="tag">Website</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">基础知识点</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E7%BA%A7/" rel="tag">多线程高级</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">知识点</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -231,7 +231,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/AUDIO-SOURCE-SEPARATION/" style="font-size: 13.67px;">AUDIO SOURCE SEPARATION</a> <a href="/tags/Blog/" style="font-size: 13px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.17px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13.83px;">Java</a> <a href="/tags/ML/" style="font-size: 13.83px;">ML</a> <a href="/tags/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 13px;">MySQL知识点</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Website/" style="font-size: 13px;">Website</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 14px;">基础知识点</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 13.5px;">多线程</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 13.17px;">知识点</a>
+      <a href="/tags/AUDIO-SOURCE-SEPARATION/" style="font-size: 13.67px;">AUDIO SOURCE SEPARATION</a> <a href="/tags/Blog/" style="font-size: 13px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.17px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13.83px;">Java</a> <a href="/tags/ML/" style="font-size: 13.83px;">ML</a> <a href="/tags/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 13px;">MySQL知识点</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Website/" style="font-size: 13px;">Website</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 14px;">基础知识点</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 13.5px;">多线程</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E7%BA%A7/" style="font-size: 13px;">多线程高级</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 13.17px;">知识点</a>
     </div>
   </div>
 
@@ -240,7 +240,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -252,6 +252,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java%E9%9D%A2%E7%BB%8F/">Java面经</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/08/synchronized%E5%85%B3%E9%94%AE%E5%AD%97/" class="title">synchronized关键字</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-08T02:43:51.000Z" itemprop="datePublished">2021-03-08</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -308,21 +323,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2021-03-06T11:52:14.000Z" itemprop="datePublished">2021-03-06</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/03/06/java%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" class="title">java基本类型</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-03-06T08:17:15.000Z" itemprop="datePublished">2021-03-06</time>
               </p>
             </div>
           </li>
@@ -384,17 +384,40 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/02/28/Object%E7%B1%BB%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 766(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1><span id="object类总结">Object类总结</span></h1><h2><span id="1什么是object类">1.什么是Object类？</span></h2><p>Object是Java中的祖宗类，java中的所有类要么默认继承Object类，要么间接继承它，因此Object类中的方法所有方法都能使用，比较常见的方法有<code>public String toString()</code>、<code>public boolean equals(Object obj)</code>等。</p>
+        <!-- toc -->
+
+<ul>
+<li><a href="#object类总结">Object类总结</a><ul>
+<li><a href="#1什么是object类">1.什么是Object类？</a></li>
+<li><a href="#2tostring方法">2.toString()方法</a></li>
+<li><a href="#3equals方法">3.equals()方法</a></li>
+<li><a href="#4hashcode-与-equals">4.hashCode 与 equals</a><ul>
+<li><a href="#41什么是hashcode">4.1什么是hashCode()</a></li>
+<li><a href="#42为什么要有hashcode">4.2为什么要有hashCode()</a></li>
+<li><a href="#43hashcode与-equals的相关规定">4.3hashCode（）与 equals（）的相关规定</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#objects类">Objects类</a><ul>
+<li><a href="#1equals方法">1.equals方法</a></li>
+<li><a href="#2isnull">2.isNull</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+<h1><span id="object类总结">Object类总结</span></h1><h2><span id="1什么是object类">1.什么是Object类？</span></h2><p>Object是Java中的祖宗类，java中的所有类要么默认继承Object类，要么间接继承它，因此Object类中的方法所有方法都能使用，比较常见的方法有<code>public String toString()</code>、<code>public boolean equals(Object obj)</code>等。</p>
 <h2><span id="2tostring方法">2.toString()方法</span></h2><ul>
 <li><code>public String toString()</code>：返回该对象的字符串表示</li>
 </ul>
@@ -415,6 +438,18 @@
 <p>如果希望进行对象的内容比较，即所有或指定的部分成员变量相同就判定两个对象相同，则可以覆盖重写equals方法。例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 如果对象地址一样，则认为相同</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">// 如果参数为空，或者类型信息不一样，则认为不同</span></span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass())</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">// 转换为当前类型</span></span><br><span class="line">        Person person = (Person) o;</span><br><span class="line">        <span class="comment">// 要求基本类型相等，并且将引用类型交给java.util.Objects类的equals静态方法取用结果</span></span><br><span class="line">        <span class="keyword">return</span> age == person.age &amp;&amp; Objects.equals(name, person.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2><span id="4hashcode-与-equals">4.hashCode 与 equals</span></h2><h3><span id="41什么是hashcode">4.1什么是hashCode()</span></h3><p>hashCode() 的作用是获取哈希码，也称为散列码；它实际上是返回一个 int 整数。这个哈希码的作用是确定该对象在哈希表中的索引位置。</p>
+<p>散列表存储的是键值对(key-value)，它的特点是：能根据“键”快速的检索出对应的“值”。这其中就利用到了散列码！（可以快速找到所需要的对象）</p>
+<h3><span id="42为什么要有hashcode">4.2为什么要有hashCode()</span></h3><p><strong>以“HashSet 如何检查重复”为例子来说明为什么要有 hashCode：</strong>当你把对象加入到HashSet时， HashSet首先会计算该对象的hashCode值来判断对象加入的位置，同时与该位置其它已经加入的对象的hashCode值做比较，如果没有相同的hashCode，则hashSet则假设该对象没有重复出现；如果发现有重复的hashCode值对象，则会调用其<code>equals()</code>方法来检查hashCode相等的对象是否真的相同。如果相同则加入hashSet失败，如果不同则重新散列到其他位置（摘自《Head first java》第二版），这样使得<code>equals</code>次数大大减少，提高了执行速度。</p>
+<p>通过我们可以看出：<code>hashCode()</code> 的作用就是<strong>获取哈希码</strong>，也称为散列码；它实际上是返回一个 int 整数。这个<strong>哈希码的作用</strong>是确定该对象在哈希表中的索引位置。<strong><code>hashCode()</code>在散列表中才有用，在其它情况下没用</strong>。在散列表中 hashCode() 的作用是获取对象的散列码，进而确定该对象在散列表中的位置。</p>
+<h3><span id="43hashcode与-equals的相关规定">4.3hashCode（）与 equals（）的相关规定</span></h3><ol>
+<li>如果两个对象相等，则 hashcode 一定也是相同的</li>
+<li>两个对象相等,对两个对象分别调用 equals 方法都返回 true</li>
+<li>两个对象有相同的 hashcode 值，它们也不一定是相等的</li>
+<li><strong>因此，equals 方法被覆盖过，则 hashCode 方法也必须被覆盖</strong></li>
+<li>hashCode() 的默认行为是对堆上的对象产生独特值。如果没有重写 hashCode()，则该 class 的两个对象无论如何都不会相等（即使这两个对象指向相同的数据）</li>
+</ol>
+<p><font color="cornflowerblue">为什么重写 equals 时必须重写 hashCode 方法？</font></p>
 <h1><span id="objects类">Objects类</span></h1><p>Objects类在JDK1.7及以上包含，依旧是<font color="red">继承了Object类</font>。它提供了一些方法来操作对象，它由一些静态的实用方法组成，这些方法是<font color="red">null-save（空指针安全的）</font>或<font color="red">null-tolerant（容忍空指针的）</font>，用于计算对象的hashcode、返回对象的字符串表示形式、比较两个对象。</p>
 <p>该类提供了两个方法：</p>
 <ul>

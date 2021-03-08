@@ -18,15 +18,15 @@
   
   
   <title>String、StringBuilder和StringBuffer区别 | Hexo</title>
-  <meta name="description" content="1.简单区别 String是不可改变长度的，StringBuilder和StringBuffer是可变长度的。 从运行速度来说，StringBuilder &gt; StringBuffer &gt; String。 从线程安全来说，StringBuilder是线程不安全的，而StringBuffer是线程安全的。  String适用于操作少量字符串的场合，StringBuilder适用于单线程下">
+  <meta name="description" content="1.简单区别 2.为什么String是不可变长度的？ 3.为什么StringBuffer是线程安全的？ 4.面试题解析    1.简单区别 String是不可改变长度的，StringBuilder和StringBuffer是可变长度的。 从运行速度来说，StringBuilder &gt; StringBuffer &gt; String。 从线程安全来说，StringBuilder是线程不">
 <meta property="og:type" content="article">
 <meta property="og:title" content="String、StringBuilder和StringBuffer区别">
 <meta property="og:url" content="http://jamesforlife.top/2021/03/07/String-StringBuilder-StringBuffer%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="平平无奇勒布朗">
-<meta property="og:description" content="1.简单区别 String是不可改变长度的，StringBuilder和StringBuffer是可变长度的。 从运行速度来说，StringBuilder &gt; StringBuffer &gt; String。 从线程安全来说，StringBuilder是线程不安全的，而StringBuffer是线程安全的。  String适用于操作少量字符串的场合，StringBuilder适用于单线程下">
+<meta property="og:description" content="1.简单区别 2.为什么String是不可变长度的？ 3.为什么StringBuffer是线程安全的？ 4.面试题解析    1.简单区别 String是不可改变长度的，StringBuilder和StringBuffer是可变长度的。 从运行速度来说，StringBuilder &gt; StringBuffer &gt; String。 从线程安全来说，StringBuilder是线程不">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-07T07:29:22.000Z">
-<meta property="article:modified_time" content="2021-03-08T02:24:57.639Z">
+<meta property="article:modified_time" content="2021-03-08T02:52:15.909Z">
 <meta property="article:author" content="Peng Chenhui">
 <meta property="article:tag" content="基础知识点">
 <meta name="twitter:card" content="summary">
@@ -211,7 +211,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E5%9F%BA%E7%A1%80/">Java基础</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E5%AE%83/">其它</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E5%9F%BA%E7%A1%80/">Java基础</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E9%9D%A2%E7%BB%8F/">Java面经</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E5%AE%83/">其它</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -221,7 +221,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AUDIO-SOURCE-SEPARATION/" rel="tag">AUDIO SOURCE SEPARATION</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">MySQL知识点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Website/" rel="tag">Website</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">基础知识点</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">知识点</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AUDIO-SOURCE-SEPARATION/" rel="tag">AUDIO SOURCE SEPARATION</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">MySQL知识点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Website/" rel="tag">Website</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">基础知识点</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E7%BA%A7/" rel="tag">多线程高级</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">知识点</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -231,7 +231,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/AUDIO-SOURCE-SEPARATION/" style="font-size: 13.67px;">AUDIO SOURCE SEPARATION</a> <a href="/tags/Blog/" style="font-size: 13px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.17px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13.83px;">Java</a> <a href="/tags/ML/" style="font-size: 13.83px;">ML</a> <a href="/tags/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 13px;">MySQL知识点</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Website/" style="font-size: 13px;">Website</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 14px;">基础知识点</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 13.5px;">多线程</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 13.17px;">知识点</a>
+      <a href="/tags/AUDIO-SOURCE-SEPARATION/" style="font-size: 13.67px;">AUDIO SOURCE SEPARATION</a> <a href="/tags/Blog/" style="font-size: 13px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.17px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13.83px;">Java</a> <a href="/tags/ML/" style="font-size: 13.83px;">ML</a> <a href="/tags/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 13px;">MySQL知识点</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Website/" style="font-size: 13px;">Website</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 14px;">基础知识点</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 13.5px;">多线程</a> <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E7%BA%A7/" style="font-size: 13px;">多线程高级</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" style="font-size: 13.17px;">知识点</a>
     </div>
   </div>
 
@@ -240,7 +240,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -252,6 +252,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java%E9%9D%A2%E7%BB%8F/">Java面经</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/08/synchronized%E5%85%B3%E9%94%AE%E5%AD%97/" class="title">synchronized关键字</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-08T02:43:51.000Z" itemprop="datePublished">2021-03-08</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -308,21 +323,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2021-03-06T11:52:14.000Z" itemprop="datePublished">2021-03-06</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Java%E9%9D%A2%E7%BB%8F%E5%9F%BA%E7%A1%80/">Java面经基础</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/03/06/java%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" class="title">java基本类型</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-03-06T08:17:15.000Z" itemprop="datePublished">2021-03-06</time>
               </p>
             </div>
           </li>
@@ -384,17 +384,27 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/07/String-StringBuilder-StringBuffer%E5%8C%BA%E5%88%AB/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 690(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 920(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2><span id="1简单区别">1.简单区别</span></h2><ul>
+        <!-- toc -->
+
+<ul>
+<li><a href="#1简单区别">1.简单区别</a></li>
+<li><a href="#2为什么string是不可变长度的">2.为什么String是不可变长度的？</a></li>
+<li><a href="#3为什么stringbuffer是线程安全的">3.为什么<code>StringBuffer</code>是线程安全的？</a></li>
+<li><a href="#4面试题解析">4.面试题解析</a></li>
+</ul>
+<!-- tocstop -->
+
+<h2><span id="1简单区别">1.简单区别</span></h2><ul>
 <li>String是不可改变长度的，StringBuilder和StringBuffer是可变长度的。</li>
 <li>从运行速度来说，StringBuilder &gt; StringBuffer &gt; String。</li>
 <li>从线程安全来说，<font color="cornflowerblue">StringBuilder是线程不安全的</font>，而<font color="orange">StringBuffer是线程安全</font>的。</li>
@@ -418,9 +428,20 @@
 <p>由于<code>String</code>类是被<code>final</code>修饰的，该类不能不继承！另外</p>
 <p>StringBuilder和StringBuffer都被final修饰，都不可继承。</p>
 <p><font color="cornflowerblue">要是问用final修饰的好处是啥？</font></p>
-<p><a href="http://jamesforlife.top/2021/03/07/final%E6%80%BB%E7%BB%93/">参考我写的另一篇总结。</a></p>
-<h2><span id="3为什么stringbuffer是线程安全的">3.为什么<code>StringBuffer</code>是线程安全的？</span></h2><p>通过查看<code>StringBuffer</code>的源码，可以发现<code>StringBuffer</code>类的<font color="orange">常用方法基本都使用了</font><code>synchronized</code><font color="orange">来进行同步</font>。然而<code>StringBuilder</code>并没有，这也是<code>StringBuffer</code>运行速度比<code>StringBuilder</code>慢的原因。</p>
+<p><a href="https://jamesforlife.top/2021/03/07/final%E6%80%BB%E7%BB%93/">参考我写的另一篇总结。</a></p>
+<h2><span id="3为什么stringbuffer是线程安全的">3.为什么<code>StringBuffer</code>是线程安全的？</span></h2><p>通过查看<code>StringBuffer</code>的源码，可以发现<code>StringBuffer</code>类的<font color="orange">常用方法基本都使用了</font><code>synchronized</code><font color="orange">来进行同步</font>，故<code>StringBuffer</code>是线程安全带的。然而<code>StringBuilder</code>并没有，这也是<code>StringBuffer</code>运行速度比<code>StringBuilder</code>慢的原因。</p>
 <p><a href><code>synchronized</code>关键字总结如下。</a></p>
+<h2><span id="4面试题解析">4.面试题解析</span></h2><p><a href="https://juejin.cn/post/6867158692018520072#heading-3" target="_blank" rel="noopener">面试题转自掘金</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Demo &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        String str &#x3D; null;</span><br><span class="line">        str &#x3D; str + &quot;&quot;;</span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问输出是什么？</p>
+<p>输出是<font color="red">null</font>，因为使用<code>+</code>进行拼接实际上是会转换为<code>StringBuilder</code>使用<code>append</code>方法进行拼接。</p>
+<p>通过查看源码发现，<code>StringBuilder</code>是调用了其父类<code>AbstractStringBuilder</code>中的<code>append</code>方法来增添字符，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> AbstractStringBuilder <span class="title">append</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> appendNull();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = str.length();</span><br><span class="line">        ensureCapacityInternal(count + len);</span><br><span class="line">        putStringAt(count, str);</span><br><span class="line">        count += len;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> AbstractStringBuilder <span class="title">appendNull</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ensureCapacityInternal(count + <span class="number">4</span>);</span><br><span class="line">        <span class="keyword">int</span> count = <span class="keyword">this</span>.count;</span><br><span class="line">        <span class="keyword">byte</span>[] val = <span class="keyword">this</span>.value;</span><br><span class="line">        <span class="keyword">if</span> (isLatin1()) &#123;</span><br><span class="line">            val[count++] = <span class="string">'n'</span>;</span><br><span class="line">            val[count++] = <span class="string">'u'</span>;</span><br><span class="line">            val[count++] = <span class="string">'l'</span>;</span><br><span class="line">            val[count++] = <span class="string">'l'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            count = StringUTF16.putCharsAt(val, count, <span class="string">'n'</span>, <span class="string">'u'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.count = count;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样一看答案也就清晰了。</p>
 
       
     </div>
