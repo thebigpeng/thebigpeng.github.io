@@ -18,12 +18,12 @@
   
   
   <title>JVM总结1 | Hexo</title>
-  <meta name="description" content="1. JDK发展小结 2.内存区域与内存溢出溢出 2.1 java各内存区域介绍 2.2 HotSpot虚拟机对象 2.2.1对象创建 2.2.2 对象的内存布局 2.2.3 对象访问定位 2.2.4 堆溢出 2.2.5 虚拟机栈和本地方法栈溢出 2.2.6 方法区和运行时常量池溢出 2.2.7 本机直接内存溢出     3.垃圾收集器与内存分配策略 3.1简介 3.2 怎样确定对象已经死亡">
+  <meta name="description" content="欢迎查看我对JVM总结的思维导图    1. JDK发展小结 2.内存区域与内存溢出溢出 2.1 java各内存区域介绍 2.2 HotSpot虚拟机对象 2.2.1对象创建 2.2.2 对象的内存布局 2.2.3 对象访问定位 2.2.4 堆溢出 2.2.5 虚拟机栈和本地方法栈溢出 2.2.6 方法区和运行时常量池溢出 2.2.7 本机直接内存溢出     3.垃圾收集器与内存分配策略 3.1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM总结1">
 <meta property="og:url" content="http://jamesforlife.top/2021/03/12/JVM%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="平平无奇勒布朗">
-<meta property="og:description" content="1. JDK发展小结 2.内存区域与内存溢出溢出 2.1 java各内存区域介绍 2.2 HotSpot虚拟机对象 2.2.1对象创建 2.2.2 对象的内存布局 2.2.3 对象访问定位 2.2.4 堆溢出 2.2.5 虚拟机栈和本地方法栈溢出 2.2.6 方法区和运行时常量池溢出 2.2.7 本机直接内存溢出     3.垃圾收集器与内存分配策略 3.1简介 3.2 怎样确定对象已经死亡">
+<meta property="og:description" content="欢迎查看我对JVM总结的思维导图    1. JDK发展小结 2.内存区域与内存溢出溢出 2.1 java各内存区域介绍 2.2 HotSpot虚拟机对象 2.2.1对象创建 2.2.2 对象的内存布局 2.2.3 对象访问定位 2.2.4 堆溢出 2.2.5 虚拟机栈和本地方法栈溢出 2.2.6 方法区和运行时常量池溢出 2.2.7 本机直接内存溢出     3.垃圾收集器与内存分配策略 3.1">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://jamesforlife.top/2021/03/12/JVM%E6%80%BB%E7%BB%93/java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png">
 <meta property="og:image" content="http://jamesforlife.top/2021/03/12/JVM%E6%80%BB%E7%BB%93/Java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9FJDK1.8.png">
@@ -41,7 +41,7 @@
 <meta property="og:image" content="http://jamesforlife.top/2021/03/12/JVM%E6%80%BB%E7%BB%93/ParallelOld%E6%94%B6%E9%9B%86%E5%99%A8%E5%8E%9F%E7%90%86.jpg">
 <meta property="og:image" content="http://jamesforlife.top/2021/03/12/JVM%E6%80%BB%E7%BB%93/CMS%E6%94%B6%E9%9B%86%E5%99%A8.png">
 <meta property="article:published_time" content="2021-03-12T00:53:15.000Z">
-<meta property="article:modified_time" content="2021-03-15T03:57:36.373Z">
+<meta property="article:modified_time" content="2021-03-16T18:31:29.284Z">
 <meta property="article:author" content="Peng Chenhui">
 <meta property="article:tag" content="JVM">
 <meta name="twitter:card" content="summary">
@@ -410,7 +410,8 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <!-- toc -->
+        <p><a href="https://www.processon.com/view/link/6050a729637689019de0e175" target="_blank" rel="noopener">欢迎查看我对JVM总结的思维导图</a></p>
+<!-- toc -->
 
 <ul>
 <li><a href="#1-jdk发展小结">1. JDK发展小结</a></li>
@@ -540,7 +541,7 @@
 <p>使用句柄访问好处是reference存储的内容稳定句柄地址，对象移动时也只改变句柄中的实例数据指针，reference本身不修改。</p>
 <p>使用直接指针访问好处就是速度快。</p>
 <p><img src="%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE.jpg" alt></p>
-<h4><span id="224-堆溢出">2.2.4 堆溢出</span></h4><p>堆用于存储对象的实例，只要不断的创建对象，并且避免垃圾回收基础清楚这些对象，总容量触及堆设定的最大容量后就会产生内存溢出异常<code>OutOfMemoryError</code>。假如堆可动态扩展，当扩展无法申请到足够的内存时也会报该异常。</p>
+<h4><span id="224-堆溢出">2.2.4 堆溢出</span></h4><p>堆用于存储对象的实例，只要不断的创建对象，并且避免垃圾回收清除这些对象，总容量触及堆设定的最大容量后就会产生内存溢出异常<code>OutOfMemoryError</code>。假如堆可动态扩展，当扩展无法申请到足够的内存时也会报该异常。</p>
 <p>测试代码：启动参数设置：<code>-Xms20m  -Xmx20m</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">OOMObject</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;OOMObject&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">            list.add(<span class="keyword">new</span> OOMObject());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
