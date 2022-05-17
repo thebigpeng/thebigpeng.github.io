@@ -101,7 +101,7 @@ theme: dawn
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: 'git'
+  type: git
   # repo: https://github.com/thebigpeng/thebigpeng.github.io.git
 
   # 发送到github上
