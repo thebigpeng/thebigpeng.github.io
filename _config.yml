@@ -116,7 +116,7 @@ deploy:
   # repository: git@111.229.177.18:/home/git/blog.git  
 
   # repo: git@111.229.177.18:/home/git/repos/blog.git  
-  branch: master
+  branch: main
 
 jsonContent:
   dateFormat: MM-DD
