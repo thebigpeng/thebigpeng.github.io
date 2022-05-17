@@ -2,7 +2,8 @@
 title: Docker入门
 date: 2022-05-18 00:56:52
 tags:
-categories:
+  - Docker
+categories: 项目管理
 ---
 
 ## Docker入门
