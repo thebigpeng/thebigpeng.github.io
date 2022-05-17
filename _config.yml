@@ -105,7 +105,7 @@ deploy:
   # repo: https://github.com/thebigpeng/thebigpeng.github.io.git
 
   # 发送到github上
-  repo: git@github.com:bigpeng/thebigpeng.github.io.git
+  repo: git@github.com:thebigpeng/bigpeng.github.io.git
 
   # repo: git@gitee.com:pengchenhui/blog.git
 
